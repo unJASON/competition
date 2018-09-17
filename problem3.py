@@ -277,7 +277,7 @@ dicFormula, dicFormulaReverse = generateFormula()
 
 # 抽出最优解
 # 设航站楼为0,卫星厅为1
-answers = extractExcel.extractFile('answer2.xlsx')
+answers = extractExcel.extractFile('answer3.xlsx')
 for i in range(answers.__len__()):
     answers[i][0] = answers[i][0][1:]
 # 用于分析时间，参数选择停靠的登机口序列和对应飞机序列
@@ -368,12 +368,4 @@ def generateFormulaCheck(answers):
 
 
 
-####根据排队论+流水线处理第一问并画图
-# 飞机型号对应登机门，并针对不同问题画图
 
-#
-# print(planeFlag)
-# print(planeBestFlag)
-# print(  ( np.asarray(resultArriveTime,dtype= np.float)  ) )
-# print(  ( np.asarray(resultLeaveTime,dtype= np.float)  ) )
-# print( np.asarray(resultGate) )
