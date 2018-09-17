@@ -212,7 +212,7 @@ def generateFormula():
     # 设航站楼T为0,卫星厅S为1
     dicFormula = {}
     dicFormulaReverse = {}
-    i = 1
+    i = 0
     string = "0"
     for arriving_puck_ticket_leaving_ticket in arriving_pucks_tickets_leaving_tickets:
         if not dicFormula.__contains__(arriving_puck_ticket_leaving_ticket[0]):
@@ -235,21 +235,33 @@ def generateFormula():
             string = string + "+" + "(1-x" + str(dicFormula[a[0]]) + ")*(1-x" + str(dicFormula[a[18]]) + ")*" + "20)"
             string = string + "*" + str(a[13])
         if a[4] == 'I' and a[27] == 'D':
-            string = string + "+(" + "x" + str(dicFormula[a[0]]) + "*x" + str(dicFormula[a[18]]) + "*" + "35"
+            # 1 1
+            string = string + "+(" + "x" + str(dicFormula[a[0]]) + "*x" + str(dicFormula[a[18]]) + "*" + "45"
+            # 0 1
             string = string + "+" + "(1-x" + str(dicFormula[a[0]]) + ")*x" + str(dicFormula[a[18]]) + "*" + "40"
+            # 1 0
             string = string + "+" + "x" + str(dicFormula[a[0]]) + "*(1-x" + str(dicFormula[a[18]]) + ")*" + "40"
-            string = string + "+" + "(1-x" + str(dicFormula[a[0]]) + ")*(1-x" + str(dicFormula[a[18]]) + ")*" + "45)"
+            # 0 0
+            string = string + "+" + "(1-x" + str(dicFormula[a[0]]) + ")*(1-x" + str(dicFormula[a[18]]) + ")*" + "35)"
             string = string + "*" + str(a[13])
         if a[4] == 'D' and a[27] == 'I':
+            # 1 1
             string = string + "+" + "(x" + str(dicFormula[a[0]]) + "*x" + str(dicFormula[a[18]]) + "*" + "35"
+            # 1 0
             string = string + "+" + "(1-x" + str(dicFormula[a[0]]) + ")*x" + str(dicFormula[a[18]]) + "*" + "40"
+            # 0 1
             string = string + "+" + "x" + str(dicFormula[a[0]]) + "*(1-x" + str(dicFormula[a[18]]) + ")*" + "40"
+            # 0 0
             string = string + "+" + "(1-x" + str(dicFormula[a[0]]) + ")*(1-x" + str(dicFormula[a[18]]) + ")*" + "35)"
             string = string + "*" + str(a[13])
         if a[4] == 'D' and a[27] == 'D':
+            # 1 1
             string = string + "+" + "(x" + str(dicFormula[a[0]]) + "*x" + str(dicFormula[a[18]]) + "*" + "15"
+            # 0 1
             string = string + "+" + "(1-x" + str(dicFormula[a[0]]) + ")*x" + str(dicFormula[a[18]]) + "*" + "20"
+            # 1 0
             string = string + "+" + "x" + str(dicFormula[a[0]]) + "*(1-x" + str(dicFormula[a[18]]) + ")*" + "20"
+            # 1 1
             string = string + "+" + "(1-x" + str(dicFormula[a[0]]) + ")*(1-x" + str(dicFormula[a[18]]) + ")*" + "15)"
             string = string + "*" + str(a[13])
     print("Model:")
@@ -269,15 +281,90 @@ answers = extractExcel.extractFile('answer.xlsx')
 for i in range(answers.__len__()):
     answers[i][0] = answers[i][0][1:]
 # 用于分析时间，参数选择停靠的登机口序列和对应飞机序列
-planeFlag, resultGate, resultArriveTime, resultLeaveTime = SolvingProblem.problem2_plane_gate(ID_N_pucks_matrix_sorted,
-                                                                                              D_DI_N_gates, dicFormula,
+answers=np.asarray(answers,np.int)[...,1]
+planeFlag,planeBestFlag, resultGate, resultArriveTime, resultLeaveTime = SolvingProblem.problem2_plane_gate(DD_N_pucks_matrix_sorted,
+                                                                                              D_D_N_gates, dicFormula,
                                                                                               dicFormulaReverse,
                                                                                               answers)
+
+
+
+#设计找到多个最优解导出使用lingo
+def generateFormulaCheck(answers):
+    # 设航站楼T为0,卫星厅S为1
+    dicFormula = {}
+    dicFormulaReverse = {}
+    i = 0
+    string = "0"
+    for arriving_puck_ticket_leaving_ticket in arriving_pucks_tickets_leaving_tickets:
+        if not dicFormula.__contains__(arriving_puck_ticket_leaving_ticket[0]):
+            dicFormula[arriving_puck_ticket_leaving_ticket[0]] = i
+            dicFormulaReverse[i] = arriving_puck_ticket_leaving_ticket[0]
+            i = i + 1
+        if not dicFormula.__contains__(arriving_puck_ticket_leaving_ticket[18]):
+            dicFormula[arriving_puck_ticket_leaving_ticket[18]] = i
+            dicFormulaReverse[i] = arriving_puck_ticket_leaving_ticket[0]
+            i = i + 1
+    for a in arriving_pucks_tickets_leaving_tickets:
+        if a[4] == 'I' and a[27] == 'I':
+            # 1 1
+            string = string + "+(" + "x" + str(dicFormula[a[0]]) + "*x" + str(dicFormula[a[18]]) + "*" + "20"
+            # 0 1
+            string = string + "+" + "(1-x" + str(dicFormula[a[0]]) + ")*x" + str(dicFormula[a[18]]) + "*" + "30"
+            # 1 0
+            string = string + "+" + "x" + str(dicFormula[a[0]]) + "*(1-x" + str(dicFormula[a[18]]) + ")*" + "30"
+            # 0 0
+            string = string + "+" + "(1-x" + str(dicFormula[a[0]]) + ")*(1-x" + str(dicFormula[a[18]]) + ")*" + "20)"
+            string = string + "*" + str(a[13])
+        if a[4] == 'I' and a[27] == 'D':
+            # 1 1
+            string = string + "+(" + "x" + str(dicFormula[a[0]]) + "*x" + str(dicFormula[a[18]]) + "*" + "45"
+            # 0 1
+            string = string + "+" + "(1-x" + str(dicFormula[a[0]]) + ")*x" + str(dicFormula[a[18]]) + "*" + "40"
+            # 1 0
+            string = string + "+" + "x" + str(dicFormula[a[0]]) + "*(1-x" + str(dicFormula[a[18]]) + ")*" + "40"
+            # 0 0
+            string = string + "+" + "(1-x" + str(dicFormula[a[0]]) + ")*(1-x" + str(dicFormula[a[18]]) + ")*" + "35)"
+            string = string + "*" + str(a[13])
+        if a[4] == 'D' and a[27] == 'I':
+            # 1 1
+            string = string + "+" + "(x" + str(dicFormula[a[0]]) + "*x" + str(dicFormula[a[18]]) + "*" + "35"
+            # 1 0
+            string = string + "+" + "(1-x" + str(dicFormula[a[0]]) + ")*x" + str(dicFormula[a[18]]) + "*" + "40"
+            # 0 1
+            string = string + "+" + "x" + str(dicFormula[a[0]]) + "*(1-x" + str(dicFormula[a[18]]) + ")*" + "40"
+            # 0 0
+            string = string + "+" + "(1-x" + str(dicFormula[a[0]]) + ")*(1-x" + str(dicFormula[a[18]]) + ")*" + "35)"
+            string = string + "*" + str(a[13])
+        if a[4] == 'D' and a[27] == 'D':
+            # 1 1
+            string = string + "+" + "(x" + str(dicFormula[a[0]]) + "*x" + str(dicFormula[a[18]]) + "*" + "15"
+            # 0 1
+            string = string + "+" + "(1-x" + str(dicFormula[a[0]]) + ")*x" + str(dicFormula[a[18]]) + "*" + "20"
+            # 1 0
+            string = string + "+" + "x" + str(dicFormula[a[0]]) + "*(1-x" + str(dicFormula[a[18]]) + ")*" + "20"
+            # 1 1
+            string = string + "+" + "(1-x" + str(dicFormula[a[0]]) + ")*(1-x" + str(dicFormula[a[18]]) + ")*" + "15)"
+            string = string + "*" + str(a[13])
+    print("Model:")
+    print("min=" + string + ";")
+    for value in dicFormula.values():
+        print("!x" + str(value) + "="+str(answers[value]*0+(1-answers[value])*1)+";")
+    for value in dicFormula.values():
+        print("@bin(x" + str(value) + ");")
+    print("end")
+#多找几个最优解
+# generateFormulaCheck(answers)
+
+
+
+
 ####根据排队论+流水线处理第一问并画图
 # 飞机型号对应登机门，并针对不同问题画图
 
-
+#
 # print(planeFlag)
+# print(planeBestFlag)
 # print(  ( np.asarray(resultArriveTime,dtype= np.float)  ) )
 # print(  ( np.asarray(resultLeaveTime,dtype= np.float)  ) )
 # print( np.asarray(resultGate) )

@@ -22,53 +22,84 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gitignore" value="1" />
-          <entry key="py" value="69" />
+          <entry key="py" value="75" />
           <entry key="pyi" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="69" />
+          <entry key="Python" value="75" />
           <entry key="PythonStub" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="8" />
-          <entry key="py" value="10569" />
+          <entry key="py" value="12123" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="8" />
-          <entry key="Python" value="10569" />
+          <entry key="Python" value="12123" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/problem2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="233" column="17" selection-start-line="233" selection-start-column="17" selection-end-line="233" selection-end-column="17" />
+            <state relative-caret-position="184">
+              <caret line="284" column="97" selection-start-line="284" selection-start-column="97" selection-end-line="284" selection-end-column="97" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
-                <marker date="1537147793803" expanded="true" signature="11776:11778" ph="..." />
+                <marker date="1537162182298" expanded="true" signature="12060:15561" ph="..." />
+                <marker date="1537162182298" expanded="true" signature="15605:15608" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/SolvingProblem.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="246">
+              <caret line="160" column="34" selection-start-line="160" selection-start-column="34" selection-end-line="160" selection-end-column="34" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+                <marker date="1537163408870" expanded="true" signature="3037:7312" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SolvingProblem.py">
+        <entry file="file://$PROJECT_DIR$/extractExcel.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="156">
+              <caret line="92" column="8" lean-forward="true" selection-start-line="92" selection-start-column="8" selection-end-line="92" selection-end-column="8" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
+                <marker date="1537149662753" expanded="true" signature="541:546" ph="..." />
+                <marker date="1537149662753" expanded="true" signature="597:1002" ph="..." />
+                <marker date="1537149662753" expanded="true" signature="3252:3253" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/plotProblem.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="24">
+              <caret line="17" column="6" lean-forward="true" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+                <marker date="1537076948041" expanded="true" signature="176:177" ph="..." />
+                <marker date="1537076948041" expanded="true" signature="761:766" ph="..." />
               </folding>
             </state>
           </provider>
@@ -77,12 +108,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/problem.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="167" column="21" selection-start-line="167" selection-start-column="21" selection-end-line="167" selection-end-column="21" />
+            <state relative-caret-position="255">
+              <caret line="167" column="24" selection-start-line="167" selection-start-column="24" selection-end-line="167" selection-end-column="24" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
                 <marker date="1537145410782" expanded="true" signature="5793:5794" ph="..." />
-                <marker date="1537145410782" expanded="true" signature="5793:5982" ph="..." />
               </folding>
             </state>
           </provider>
@@ -116,11 +146,11 @@
         <option value="$PROJECT_DIR$/Gate.py" />
         <option value="$PROJECT_DIR$/Tickets.py" />
         <option value="$PROJECT_DIR$/extractPuck.py" />
-        <option value="$PROJECT_DIR$/extractExcel.py" />
         <option value="$PROJECT_DIR$/plotProblem.py" />
         <option value="$PROJECT_DIR$/problem.py" />
-        <option value="$PROJECT_DIR$/SolvingProblem.py" />
+        <option value="$PROJECT_DIR$/extractExcel.py" />
         <option value="$PROJECT_DIR$/problem2.py" />
+        <option value="$PROJECT_DIR$/SolvingProblem.py" />
       </list>
     </option>
   </component>
@@ -279,7 +309,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32899022" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49894625" visible="true" weight="0.38219327" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49894625" visible="true" weight="0.4636265" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -299,38 +329,21 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/SolvingProblem.py</url>
-          <line>19</line>
-          <option name="timeStamp" value="76" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/SolvingProblem.py</url>
-          <line>16</line>
-          <option name="timeStamp" value="77" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/problem2.py</url>
-          <line>271</line>
-          <option name="timeStamp" value="78" />
+          <line>356</line>
+          <option name="timeStamp" value="86" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/SolvingProblem.py</url>
+          <line>113</line>
+          <option name="timeStamp" value="87" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
-        <watch expression="np.asarray(resultDescribe)[...,0]" />
-        <watch expression="(float(np.asarray(resultDescribe)[...,0])" />
-        <watch expression="sheet.cell(i,j)" />
-        <watch expression="planes[i][1]" />
-        <watch expression="planes[i][2]" />
-        <watch expression="DI_DI_N_gates[i][0]" />
-        <watch expression="DI_DI_N_gates[i]" />
-        <watch expression="D_D_N_gates.__len__()" />
-        <watch expression="DI_DI_N_gates[i]" />
-        <watch expression="puck_consider[1]" />
-        <watch expression="puck_consider[3]" />
-        <watch expression="ticket[2]" />
-        <watch expression="ticket[3]" />
-        <watch expression="a" />
+        <watch expression="answers[ dicFormula[planes[i][0]] ]" />
+        <watch expression="gatesList[j][1]" />
       </configuration>
     </watches-manager>
   </component>
@@ -347,13 +360,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="33">
           <caret line="1" column="8" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Puck.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="14" column="17" lean-forward="true" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+          <folding>
+            <marker date="1536987504053" expanded="true" signature="13:14" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -484,23 +493,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/extractExcel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2673">
-          <caret line="81" column="18" lean-forward="true" selection-start-line="81" selection-start-column="18" selection-end-line="81" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-            <marker date="1537069814157" expanded="true" signature="541:546" ph="..." />
-            <marker date="1537069814157" expanded="true" signature="597:1002" ph="..." />
-            <marker date="1537069814157" expanded="true" signature="3231:3232" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/plotProblem.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
+        <state relative-caret-position="24">
+          <caret line="17" column="6" lean-forward="true" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
             <marker date="1537076948041" expanded="true" signature="176:177" ph="..." />
@@ -509,35 +505,56 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Puck.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="14" column="17" lean-forward="true" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/problem.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="167" column="21" selection-start-line="167" selection-start-column="21" selection-end-line="167" selection-end-column="21" />
+        <state relative-caret-position="255">
+          <caret line="167" column="24" selection-start-line="167" selection-start-column="24" selection-end-line="167" selection-end-column="24" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
             <marker date="1537145410782" expanded="true" signature="5793:5794" ph="..." />
-            <marker date="1537145410782" expanded="true" signature="5793:5982" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SolvingProblem.py">
+    <entry file="file://$PROJECT_DIR$/extractExcel.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="156">
+          <caret line="92" column="8" lean-forward="true" selection-start-line="92" selection-start-column="8" selection-end-line="92" selection-end-column="8" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
+            <marker date="1537149662753" expanded="true" signature="541:546" ph="..." />
+            <marker date="1537149662753" expanded="true" signature="597:1002" ph="..." />
+            <marker date="1537149662753" expanded="true" signature="3252:3253" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/problem2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="233" column="17" selection-start-line="233" selection-start-column="17" selection-end-line="233" selection-end-column="17" />
+        <state relative-caret-position="184">
+          <caret line="284" column="97" selection-start-line="284" selection-start-column="97" selection-end-line="284" selection-end-column="97" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
-            <marker date="1537147793803" expanded="true" signature="11776:11778" ph="..." />
+            <marker date="1537162182298" expanded="true" signature="12060:15561" ph="..." />
+            <marker date="1537162182298" expanded="true" signature="15605:15608" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SolvingProblem.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="160" column="34" selection-start-line="160" selection-start-column="34" selection-end-line="160" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+            <marker date="1537163408870" expanded="true" signature="3037:7312" ph="..." />
           </folding>
         </state>
       </provider>

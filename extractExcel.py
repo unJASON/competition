@@ -90,12 +90,15 @@ def saveAsMul(path,matrix_1,matrix_2):
         mapper.append(y)
     np.savetxt(path,mapper,delimiter=',',fmt='%s')
 
-def extractFile(path):
+def extractFile(path,containTitle = False):
     workbook = xlrd.open_workbook(path)
     sheet = workbook.sheet_by_index(0)
     matrix = []
     for i in range(sheet.nrows):
-        if i != 0:
+        if containTitle:
+            if i != 0:
+                data = sheet.row_values(i)
+        else:
             data = sheet.row_values(i)
-            matrix.append(data)
+        matrix.append(data)
     return matrix
