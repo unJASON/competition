@@ -137,22 +137,6 @@ for gate in gates_matrix:
         DI_D_N_gates.append(gate)
     if gate[3] == 'D, I' and gate[4] == 'I' and gate[5] == 'W':
         DI_I_W_gates.append(gate)
-# print(I_I_N_gates.__len__()+I_I_W_gates.__len__()+I_DI_W_gates.__len__()
-#       +D_D_N_gates.__len__()+D_D_W_gates.__len__()+D_DI_N_gates.__len__()
-#       +DI_DI_W_gates.__len__()+DI_DI_N_gates.__len__()+DI_D_N_gates.__len__()
-#       +DI_I_W_gates.__len__())
-# printListAsMatrix(I_I_N_gates)
-# printListAsMatrix(I_I_W_gates)
-# printListAsMatrix(I_DI_W_gates)
-#
-# printListAsMatrix(D_D_N_gates)
-# printListAsMatrix(D_D_W_gates)
-# printListAsMatrix(D_DI_N_gates)
-#
-# printListAsMatrix(DI_DI_W_gates)
-# printListAsMatrix(DI_DI_N_gates)
-# printListAsMatrix(DI_D_N_gates)
-# printListAsMatrix(DI_I_W_gates)
 ##################预处理gate结束####################################
 ##################预处理ticket######################################
 import itertools
@@ -194,7 +178,7 @@ for x in itertools.product(pucks_consider, tickets_final_matrix):
 # 找到某个起飞飞机中有哪些乘客
 arriving_pucks_tickets = []
 leaving_pucks_tickets = []
-arriving_pucks_tickets_leaving_tickets = []
+arriving_pucks_tickets_leaving_pucks = []
 # 不同天有相同班次的飞机
 for puck_join_ticket in pucks_join_tickets:
     if (puck_join_ticket[3] == puck_join_ticket[14] and puck_join_ticket[1] == puck_join_ticket[15]):
@@ -204,17 +188,17 @@ for puck_join_ticket in pucks_join_tickets:
 for arriving_puck_ticket in arriving_pucks_tickets:
     for leaving_puck_ticket in leaving_pucks_tickets:
         if (arriving_puck_ticket[12] == leaving_puck_ticket[12]):
-            arriving_pucks_tickets_leaving_tickets.append(arriving_puck_ticket + leaving_puck_ticket)
+            arriving_pucks_tickets_leaving_pucks.append(arriving_puck_ticket + leaving_puck_ticket)
             break
 
 
-def generateFormula():
-    # 设航站楼T为0,卫星厅S为1
+def generateFormula_problem3():
+    # 设航站楼T为0,卫星厅S为1,引入其他决策变量y1-y7
     dicFormula = {}
     dicFormulaReverse = {}
     i = 0
     string = "0"
-    for arriving_puck_ticket_leaving_ticket in arriving_pucks_tickets_leaving_tickets:
+    for arriving_puck_ticket_leaving_ticket in arriving_pucks_tickets_leaving_pucks:
         if not dicFormula.__contains__(arriving_puck_ticket_leaving_ticket[0]):
             dicFormula[arriving_puck_ticket_leaving_ticket[0]] = i
             dicFormulaReverse[i] = arriving_puck_ticket_leaving_ticket[0]
@@ -223,7 +207,7 @@ def generateFormula():
             dicFormula[arriving_puck_ticket_leaving_ticket[18]] = i
             dicFormulaReverse[i] = arriving_puck_ticket_leaving_ticket[0]
             i = i + 1
-    for a in arriving_pucks_tickets_leaving_tickets:
+    for a in arriving_pucks_tickets_leaving_pucks:
         if a[4] == 'I' and a[27] == 'I':
             # 1 1
             string = string + "+(" + "x" + str(dicFormula[a[0]]) + "*x" + str(dicFormula[a[18]]) + "*" + "20"
@@ -272,8 +256,13 @@ def generateFormula():
     return dicFormula, dicFormulaReverse
 
 
+def weight(arriving_pucks_tickets_leaving_pucks,ticket_index,x_come_index,x_go_index):
+    string = "("+"x"+")"+"/"+str(arriving_pucks_tickets_leaving_pucks[24]*60*24
+                          + arriving_pucks_tickets_leaving_pucks[25] - arriving_pucks_tickets_leaving_pucks[1]*60*24-arriving_pucks_tickets_leaving_pucks[2])
+    return string
+
 # 跑一次就够了
-dicFormula, dicFormulaReverse = generateFormula()
+dicFormula, dicFormulaReverse = generateFormula_problem3()
 
 # 抽出最优解
 # 设航站楼为0,卫星厅为1
@@ -292,9 +281,6 @@ print(planeFlag.sum())
 print(planeFlag)
 print(planeBestFlag.sum())
 print(planeBestFlag)
-# print(  ( np.asarray(resultArriveTime,dtype= np.float)  ) )
-# print(  ( np.asarray(resultLeaveTime,dtype= np.float)  ) )
-# print( np.asarray(resultGate) )
 
 
 
@@ -305,7 +291,7 @@ def generateFormulaCheck(answers):
     dicFormulaReverse = {}
     i = 0
     string = "0"
-    for arriving_puck_ticket_leaving_ticket in arriving_pucks_tickets_leaving_tickets:
+    for arriving_puck_ticket_leaving_ticket in arriving_pucks_tickets_leaving_pucks:
         if not dicFormula.__contains__(arriving_puck_ticket_leaving_ticket[0]):
             dicFormula[arriving_puck_ticket_leaving_ticket[0]] = i
             dicFormulaReverse[i] = arriving_puck_ticket_leaving_ticket[0]
@@ -314,7 +300,7 @@ def generateFormulaCheck(answers):
             dicFormula[arriving_puck_ticket_leaving_ticket[18]] = i
             dicFormulaReverse[i] = arriving_puck_ticket_leaving_ticket[0]
             i = i + 1
-    for a in arriving_pucks_tickets_leaving_tickets:
+    for a in arriving_pucks_tickets_leaving_pucks:
         if a[4] == 'I' and a[27] == 'I':
             # 1 1
             string = string + "+(" + "x" + str(dicFormula[a[0]]) + "*x" + str(dicFormula[a[18]]) + "*" + "20"

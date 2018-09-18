@@ -21,18 +21,6 @@ def extractGate(path):
 
     return gates,gates_matrix
 
-def extractTicket(path):
-    workbook = xlrd.open_workbook(path)
-    sheet = workbook.sheet_by_name('Tickets')
-    tickets = []
-    tickets_matrix = []
-    for i in range(sheet.nrows):
-        if i != 0:
-            data = sheet.row_values(i)
-            ticket = Ticket(data[0],data[1],data[2],data[3],data[4],data[5])
-            tickets.append(ticket)
-            tickets_matrix.append(data)
-    return tickets,tickets_matrix
 def extractPuck(path):
     workbook = xlrd.open_workbook(path)
     sheet = workbook.sheet_by_name('Pucks')
@@ -81,6 +69,18 @@ def extractPuck(path):
             pucks.append(puck)
             pucks_matrix.append(data)
     return pucks,pucks_matrix
+def extractTicket(path):
+    workbook = xlrd.open_workbook(path)
+    sheet = workbook.sheet_by_name('Tickets')
+    tickets = []
+    tickets_matrix = []
+    for i in range(sheet.nrows):
+        if i != 0:
+            data = sheet.row_values(i)
+            ticket = Ticket(data[0],data[1],data[2],data[3],data[4],data[5])
+            tickets.append(ticket)
+            tickets_matrix.append(data)
+    return tickets,tickets_matrix
 
 #计算笛卡尔积并保存
 def saveAsMul(path,matrix_1,matrix_2):
