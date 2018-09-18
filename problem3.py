@@ -198,6 +198,14 @@ def generateFormula_problem3():
     dicFormulaReverse = {}
     i = 0
     string = "0"
+    walking_weight = [10,15,20,25,20,25,25,
+                      15,10,15,20,15,20,20,
+                      20,15,10,25,20,25,25,
+                      25,20,25,10,15,20,20,
+                      25,15,20,15,10,15,15,
+                      25,20,25,20,15,10,20,
+                      25,20,25,20,15,20,10]
+    walking = np.asarray(walking_weight,dtype=np.int).reshape((7,7))
     for arriving_puck_ticket_leaving_ticket in arriving_pucks_tickets_leaving_pucks:
         if not dicFormula.__contains__(arriving_puck_ticket_leaving_ticket[0]):
             dicFormula[arriving_puck_ticket_leaving_ticket[0]] = i
@@ -212,54 +220,112 @@ def generateFormula_problem3():
             # 1 1
             string = string + "+(" + "x" + str(dicFormula[a[0]]) + "*x" + str(dicFormula[a[18]]) + "*" + "20"
             # 0 1
-            string = string + "+" + "(1-x" + str(dicFormula[a[0]]) + ")*x" + str(dicFormula[a[18]]) + "*" + "30"
+            string = string + "+" + "(1-x" + str(dicFormula[a[0]]) + ")*x" + str(dicFormula[a[18]]) + "*" + "38"
             # 1 0
-            string = string + "+" + "x" + str(dicFormula[a[0]]) + "*(1-x" + str(dicFormula[a[18]]) + ")*" + "30"
+            string = string + "+" + "x" + str(dicFormula[a[0]]) + "*(1-x" + str(dicFormula[a[18]]) + ")*" + "38"
             # 0 0
-            string = string + "+" + "(1-x" + str(dicFormula[a[0]]) + ")*(1-x" + str(dicFormula[a[18]]) + ")*" + "20)"
+            string = string + "+" + "(1-x" + str(dicFormula[a[0]]) + ")*(1-x" + str(dicFormula[a[18]]) + ")*" + "20+"+print_matrix(dicFormula[a[0]],dicFormula[a[18]])+")"
             string = string + "*" + str(a[13])
         if a[4] == 'I' and a[27] == 'D':
             # 1 1
-            string = string + "+(" + "x" + str(dicFormula[a[0]]) + "*x" + str(dicFormula[a[18]]) + "*" + "45"
+            string = string + "+(" + "x" + str(dicFormula[a[0]]) + "*x" + str(dicFormula[a[18]]) + "*" + "61"
             # 0 1
-            string = string + "+" + "(1-x" + str(dicFormula[a[0]]) + ")*x" + str(dicFormula[a[18]]) + "*" + "40"
+            string = string + "+" + "(1-x" + str(dicFormula[a[0]]) + ")*x" + str(dicFormula[a[18]]) + "*" + "48"
             # 1 0
-            string = string + "+" + "x" + str(dicFormula[a[0]]) + "*(1-x" + str(dicFormula[a[18]]) + ")*" + "40"
+            string = string + "+" + "x" + str(dicFormula[a[0]]) + "*(1-x" + str(dicFormula[a[18]]) + ")*" + "48"
             # 0 0
-            string = string + "+" + "(1-x" + str(dicFormula[a[0]]) + ")*(1-x" + str(dicFormula[a[18]]) + ")*" + "35)"
+            string = string + "+" + "(1-x" + str(dicFormula[a[0]]) + ")*(1-x" + str(dicFormula[a[18]]) + ")*" + "35+"+print_matrix(dicFormula[a[0]],dicFormula[a[18]])+")"
             string = string + "*" + str(a[13])
         if a[4] == 'D' and a[27] == 'I':
             # 1 1
             string = string + "+" + "(x" + str(dicFormula[a[0]]) + "*x" + str(dicFormula[a[18]]) + "*" + "35"
             # 1 0
-            string = string + "+" + "(1-x" + str(dicFormula[a[0]]) + ")*x" + str(dicFormula[a[18]]) + "*" + "40"
+            string = string + "+" + "(1-x" + str(dicFormula[a[0]]) + ")*x" + str(dicFormula[a[18]]) + "*" + "48"
             # 0 1
-            string = string + "+" + "x" + str(dicFormula[a[0]]) + "*(1-x" + str(dicFormula[a[18]]) + ")*" + "40"
+            string = string + "+" + "x" + str(dicFormula[a[0]]) + "*(1-x" + str(dicFormula[a[18]]) + ")*" + "48"
             # 0 0
-            string = string + "+" + "(1-x" + str(dicFormula[a[0]]) + ")*(1-x" + str(dicFormula[a[18]]) + ")*" + "35)"
+            string = string + "+" + "(1-x" + str(dicFormula[a[0]]) + ")*(1-x" + str(dicFormula[a[18]]) + ")*" + "35+"+print_matrix(dicFormula[a[0]],dicFormula[a[18]])+")"
             string = string + "*" + str(a[13])
         if a[4] == 'D' and a[27] == 'D':
             # 1 1
             string = string + "+" + "(x" + str(dicFormula[a[0]]) + "*x" + str(dicFormula[a[18]]) + "*" + "15"
             # 0 1
-            string = string + "+" + "(1-x" + str(dicFormula[a[0]]) + ")*x" + str(dicFormula[a[18]]) + "*" + "20"
+            string = string + "+" + "(1-x" + str(dicFormula[a[0]]) + ")*x" + str(dicFormula[a[18]]) + "*" + "28"
             # 1 0
-            string = string + "+" + "x" + str(dicFormula[a[0]]) + "*(1-x" + str(dicFormula[a[18]]) + ")*" + "20"
+            string = string + "+" + "x" + str(dicFormula[a[0]]) + "*(1-x" + str(dicFormula[a[18]]) + ")*" + "28"
             # 1 1
-            string = string + "+" + "(1-x" + str(dicFormula[a[0]]) + ")*(1-x" + str(dicFormula[a[18]]) + ")*" + "15)"
+            string = string + "+" + "(1-x" + str(dicFormula[a[0]]) + ")*(1-x" + str(dicFormula[a[18]]) + ")*" + "15+"+print_matrix(dicFormula[a[0]],dicFormula[a[18]])+")"
             string = string + "*" + str(a[13])
+
     print("Model:")
     print("min=" + string + ";")
     for value in dicFormula.values():
         print("@bin(x" + str(value) + ");")
     print("end")
     return dicFormula, dicFormulaReverse
+def print_matrix(arriving_number,leaving_number,walking_weight):
+    #11SS
+    arriving_number = str(arriving_number)
+    leaving_number = str(leaving_number)
+    string = "x"+arriving_number+"*"+"x"+leaving_number+"*("+"x"+arriving_number+"_3*x"+leaving_number+"_3*"+str(walking_weight[3][3])+\
+                                                            "+x"+arriving_number+"_3*x"+leaving_number+"_4*"+str(walking_weight[3][4])+\
+                                                            "+x"+arriving_number+"_3*x"+leaving_number+"_5*"+str(walking_weight[3][5])+\
+                                                            "+x"+arriving_number+"_3*x"+leaving_number+"_6*"+str(walking_weight[3][6])+\
+                                                            "+x"+arriving_number+"_4*x"+leaving_number+"_3*"+str(walking_weight[4][3])+\
+                                                            "+x"+arriving_number+"_4*x"+leaving_number+"_4*"+str(walking_weight[4][4])+\
+                                                            "+x"+arriving_number+"_4*x"+leaving_number+"_5*"+str(walking_weight[4][5])+\
+                                                            "+x"+arriving_number+"_4*x"+leaving_number+"_6*"+str(walking_weight[4][6])+\
+                                                            "+x"+arriving_number+"_5*x"+leaving_number+"_3*"+str(walking_weight[5][3])+\
+                                                            "+x"+arriving_number+"_5*x"+leaving_number+"_4*"+str(walking_weight[5][4])+\
+                                                            "+x"+arriving_number+"_5*x"+leaving_number+"_5*"+str(walking_weight[5][5])+\
+                                                            "+x"+arriving_number+"_5*x"+leaving_number+"_6*"+str(walking_weight[5][6])+\
+                                                            "+x"+arriving_number+"_6*x"+leaving_number+"_3*"+str(walking_weight[6][3])+\
+                                                            "+x"+arriving_number+"_6*x"+leaving_number+"_4*"+str(walking_weight[6][4])+\
+                                                            "+x"+arriving_number+"_6*x"+leaving_number+"_5*"+str(walking_weight[6][5])+\
+                                                            "+x"+arriving_number+"_6*x"+leaving_number+"_6*"+str(walking_weight[6][6])+")"
 
+    #01TS
+    string = string + "+(1-x"+arriving_number+")*"+"x"+leaving_number+"*("\
+                                                            +"x"+arriving_number+"_0*x"+leaving_number+"_3*"+str(walking_weight[0][3])+\
+                                                            "+x"+arriving_number+"_0*x"+leaving_number+"_4*"+str(walking_weight[0][4])+\
+                                                            "+x"+arriving_number+"_0*x"+leaving_number+"_5*"+str(walking_weight[0][5])+\
+                                                            "+x"+arriving_number+"_0*x"+leaving_number+"_6*"+str(walking_weight[0][6])+\
+                                                            "+x"+arriving_number+"_1*x"+leaving_number+"_3*"+str(walking_weight[1][3])+\
+                                                            "+x"+arriving_number+"_1*x"+leaving_number+"_4*"+str(walking_weight[1][4])+\
+                                                            "+x"+arriving_number+"_1*x"+leaving_number+"_5*"+str(walking_weight[1][5])+\
+                                                            "+x"+arriving_number+"_1*x"+leaving_number+"_6*"+str(walking_weight[1][6])+\
+                                                            "+x"+arriving_number+"_2*x"+leaving_number+"_3*"+str(walking_weight[2][3])+\
+                                                            "+x"+arriving_number+"_2*x"+leaving_number+"_4*"+str(walking_weight[2][4])+\
+                                                            "+x"+arriving_number+"_2*x"+leaving_number+"_5*"+str(walking_weight[2][5])+\
+                                                            "+x"+arriving_number+"_2*x"+leaving_number+"_6*"+str(walking_weight[2][6])+")"
 
-def weight(arriving_pucks_tickets_leaving_pucks,ticket_index,x_come_index,x_go_index):
-    string = "("+"x"+")"+"/"+str(arriving_pucks_tickets_leaving_pucks[24]*60*24
-                          + arriving_pucks_tickets_leaving_pucks[25] - arriving_pucks_tickets_leaving_pucks[1]*60*24-arriving_pucks_tickets_leaving_pucks[2])
+    #10ST     "(1-x" + arriving_number + ")*" + "x" + leaving_number
+    string = string +"+x"+arriving_number+"*"+"(1-x"+leaving_number+")*(" \
+                                                             +"x" + arriving_number + "_3*x" + leaving_number + "_0*" + str(walking_weight[3][0]) + \
+                                                             "+x" + arriving_number + "_3*x" + leaving_number + "_1*" + str(walking_weight[3][1]) + \
+                                                             "+x" + arriving_number + "_3*x" + leaving_number + "_2*" + str(walking_weight[3][2]) + \
+                                                             "+x" + arriving_number + "_4*x" + leaving_number + "_0*" + str(walking_weight[4][0]) + \
+                                                             "+x" + arriving_number + "_4*x" + leaving_number + "_1*" + str(walking_weight[4][1]) + \
+                                                             "+x" + arriving_number + "_4*x" + leaving_number + "_2*" + str(walking_weight[4][2]) + \
+                                                             "+x" + arriving_number + "_5*x" + leaving_number + "_0*" + str(walking_weight[5][0]) + \
+                                                             "+x" + arriving_number + "_5*x" + leaving_number + "_1*" + str(walking_weight[5][1]) + \
+                                                             "+x" + arriving_number + "_5*x" + leaving_number + "_2*" + str(walking_weight[5][2]) + \
+                                                             "+x" + arriving_number + "_6*x" + leaving_number + "_0*" + str(walking_weight[6][0]) + \
+                                                             "+x" + arriving_number + "_6*x" + leaving_number + "_1*" + str(walking_weight[6][1]) + \
+                                                             "+x" + arriving_number + "_6*x" + leaving_number + "_2*" + str(walking_weight[6][2]) + ")"
+    #00TT
+    string = string + "(1-x+"+arriving_number+")*"+"(1-x"+leaving_number+")*(" \
+                                                             +"x" + arriving_number + "_0*x" + leaving_number + "_0*" + str(walking_weight[0][0]) + \
+                                                             "+x" + arriving_number + "_0*x" + leaving_number + "_1*" + str(walking_weight[0][1]) + \
+                                                             "+x" + arriving_number + "_0*x" + leaving_number + "_2*" + str(walking_weight[0][2]) + \
+                                                             "+x" + arriving_number + "_1*x" + leaving_number + "_0*" + str(walking_weight[1][0]) + \
+                                                             "+x" + arriving_number + "_1*x" + leaving_number + "_1*" + str(walking_weight[1][1]) + \
+                                                             "+x" + arriving_number + "_1*x" + leaving_number + "_2*" + str(walking_weight[1][2]) + \
+                                                             "+x" + arriving_number + "_2*x" + leaving_number + "_0*" + str(walking_weight[2][0]) + \
+                                                             "+x" + arriving_number + "_2*x" + leaving_number + "_1*" + str(walking_weight[2][1]) + \
+                                                             "+x" + arriving_number + "_2*x" + leaving_number + "_2*" + str(walking_weight[2][2]) + ")"
     return string
+
 
 # 跑一次就够了
 dicFormula, dicFormulaReverse = generateFormula_problem3()
