@@ -201,11 +201,11 @@ def generateFormula_problem3():
     walking_weight = [10,15,20,25,20,25,25,
                       15,10,15,20,15,20,20,
                       20,15,10,25,20,25,25,
-                      25,20,25,10,15,20,20,
+                      20,20,25,10,15,20,20,
                       25,15,20,15,10,15,15,
                       25,20,25,20,15,10,20,
                       25,20,25,20,15,20,10]
-    walking = np.asarray(walking_weight,dtype=np.int).reshape((7,7))
+    walking_weight = np.asarray(walking_weight,dtype=np.int).reshape((7,7))
     for arriving_puck_ticket_leaving_ticket in arriving_pucks_tickets_leaving_pucks:
         if not dicFormula.__contains__(arriving_puck_ticket_leaving_ticket[0]):
             dicFormula[arriving_puck_ticket_leaving_ticket[0]] = i
@@ -225,7 +225,7 @@ def generateFormula_problem3():
             string = string + "+" + "x" + str(dicFormula[a[0]]) + "*(1-x" + str(dicFormula[a[18]]) + ")*" + "38"
             # 0 0
             string = string + "+" + "(1-x" + str(dicFormula[a[0]]) + ")*(1-x" + str(dicFormula[a[18]]) + ")*" + "20+"+print_matrix(dicFormula[a[0]],dicFormula[a[18]],walking_weight)+")"
-            string = string + "*" + str(a[13])
+
         if a[4] == 'I' and a[27] == 'D':
             # 1 1
             string = string + "+(" + "x" + str(dicFormula[a[0]]) + "*x" + str(dicFormula[a[18]]) + "*" + "61"
@@ -235,7 +235,6 @@ def generateFormula_problem3():
             string = string + "+" + "x" + str(dicFormula[a[0]]) + "*(1-x" + str(dicFormula[a[18]]) + ")*" + "48"
             # 0 0
             string = string + "+" + "(1-x" + str(dicFormula[a[0]]) + ")*(1-x" + str(dicFormula[a[18]]) + ")*" + "35+"+print_matrix(dicFormula[a[0]],dicFormula[a[18]],walking_weight)+")"
-            string = string + "*" + str(a[13])
         if a[4] == 'D' and a[27] == 'I':
             # 1 1
             string = string + "+" + "(x" + str(dicFormula[a[0]]) + "*x" + str(dicFormula[a[18]]) + "*" + "35"
@@ -245,7 +244,7 @@ def generateFormula_problem3():
             string = string + "+" + "x" + str(dicFormula[a[0]]) + "*(1-x" + str(dicFormula[a[18]]) + ")*" + "48"
             # 0 0
             string = string + "+" + "(1-x" + str(dicFormula[a[0]]) + ")*(1-x" + str(dicFormula[a[18]]) + ")*" + "35+"+print_matrix(dicFormula[a[0]],dicFormula[a[18]],walking_weight)+")"
-            string = string + "*" + str(a[13])
+
         if a[4] == 'D' and a[27] == 'D':
             # 1 1
             string = string + "+" + "(x" + str(dicFormula[a[0]]) + "*x" + str(dicFormula[a[18]]) + "*" + "15"
@@ -255,13 +254,26 @@ def generateFormula_problem3():
             string = string + "+" + "x" + str(dicFormula[a[0]]) + "*(1-x" + str(dicFormula[a[18]]) + ")*" + "28"
             # 1 1
             string = string + "+" + "(1-x" + str(dicFormula[a[0]]) + ")*(1-x" + str(dicFormula[a[18]]) + ")*" + "15+"+print_matrix(dicFormula[a[0]],dicFormula[a[18]],walking_weight)+")"
-            string = string + "*" + str(a[13])
+        string = string + "*" + str(a[13])+"/"+str(float(a[24])*24*60+float(a[25])-float(a[1])*24*60-float(a[2]))
 
+    import sys
+    from  Logger import Logger
+    sys.stdout = Logger("1.txt")  # 保存
     print("Model:")
     print("min=" + string + ";")
     for value in dicFormula.values():
+        print("(1-x"+str(value)+")*("+"x"+str(value)+"_0+"+"x"+str(value)+"_1+"+"x"+str(value)+"_2)+x"+str(value)+"*("+"x"+str(value)+"_3+"+"x"+str(value)+"_4+"+"x"+str(value)+"_5+"+"x"+str(value)+"_6) = 1;" )
+    for value in dicFormula.values():
         print("@bin(x" + str(value) + ");")
+        print("@bin(x" + str(value) + "_0" + ");")
+        print("@bin(x" + str(value) + "_1" + ");")
+        print("@bin(x" + str(value) + "_2" + ");")
+        print("@bin(x" + str(value) + "_3" + ");")
+        print("@bin(x" + str(value) + "_4" + ");")
+        print("@bin(x" + str(value) + "_5" + ");")
+        print("@bin(x" + str(value) + "_6" + ");")
     print("end")
+
     return dicFormula, dicFormulaReverse
 def print_matrix(arriving_number,leaving_number,walking_weight):
     #11SS
@@ -315,7 +327,7 @@ def print_matrix(arriving_number,leaving_number,walking_weight):
                                                              "+x" + arriving_number + "_6*x" + leaving_number + "_1*" + str(walking_weight[6][1]) + \
                                                              "+x" + arriving_number + "_6*x" + leaving_number + "_2*" + str(walking_weight[6][2]) + ")"
     #00TT 3*3
-    string = string + "(1-x+"+arriving_number+")*"+"(1-x"+leaving_number+")*(" \
+    string = string + "+(1-x+"+arriving_number+")*"+"(1-x"+leaving_number+")*(" \
                                                              +"x" + arriving_number + "_0*x" + leaving_number + "_0*" + str(walking_weight[0][0]) + \
                                                              "+x" + arriving_number + "_0*x" + leaving_number + "_1*" + str(walking_weight[0][1]) + \
                                                              "+x" + arriving_number + "_0*x" + leaving_number + "_2*" + str(walking_weight[0][2]) + \
@@ -333,7 +345,7 @@ dicFormula, dicFormulaReverse = generateFormula_problem3()
 
 # 抽出最优解
 # 设航站楼为0,卫星厅为1
-answers = extractExcel.extractFile('answer3.xlsx')
+answers = extractExcel.extractFile('answer2.xlsx')
 for i in range(answers.__len__()):
     answers[i][0] = answers[i][0][1:]
 # 用于分析时间，参数选择停靠的登机口序列和对应飞机序列
@@ -344,10 +356,10 @@ planeFlag,planeBestFlag, resultGate, resultArriveTime, resultLeaveTime = Solving
                                                                                               answers)
 
 
-print(planeFlag.sum())
-print(planeFlag)
-print(planeBestFlag.sum())
-print(planeBestFlag)
+# print(planeFlag.sum())
+# print(planeFlag)
+# print(planeBestFlag.sum())
+# print(planeBestFlag)
 
 
 

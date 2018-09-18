@@ -282,16 +282,19 @@ for i in range(answers.__len__()):
     answers[i][0] = answers[i][0][1:]
 # 用于分析时间，参数选择停靠的登机口序列和对应飞机序列
 answers=np.asarray(answers,np.int)[...,1]
+totalFlag=[],totalBestFlag=[], totalResultGate=[],total_passengers=[]
 planeFlag,planeBestFlag, resultGate, resultArriveTime, resultLeaveTime = SolvingProblem.problem2_plane_gate(DD_N_pucks_matrix_sorted,
                                                                                               D_D_N_gates, dicFormula,
                                                                                               dicFormulaReverse,
                                                                                               answers)
+totalFlag.append(planeFlag)
 
 
-print(planeFlag.sum())
-print(planeFlag)
-print(planeBestFlag.sum())
-print(planeBestFlag)
+
+# print(planeFlag.sum())
+# print(planeFlag)
+# print(planeBestFlag.sum())
+# print(planeBestFlag)
 # print(  ( np.asarray(resultArriveTime,dtype= np.float)  ) )
 # print(  ( np.asarray(resultLeaveTime,dtype= np.float)  ) )
 # print( np.asarray(resultGate) )
