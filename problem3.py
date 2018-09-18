@@ -224,7 +224,7 @@ def generateFormula_problem3():
             # 1 0
             string = string + "+" + "x" + str(dicFormula[a[0]]) + "*(1-x" + str(dicFormula[a[18]]) + ")*" + "38"
             # 0 0
-            string = string + "+" + "(1-x" + str(dicFormula[a[0]]) + ")*(1-x" + str(dicFormula[a[18]]) + ")*" + "20+"+print_matrix(dicFormula[a[0]],dicFormula[a[18]])+")"
+            string = string + "+" + "(1-x" + str(dicFormula[a[0]]) + ")*(1-x" + str(dicFormula[a[18]]) + ")*" + "20+"+print_matrix(dicFormula[a[0]],dicFormula[a[18]],walking_weight)+")"
             string = string + "*" + str(a[13])
         if a[4] == 'I' and a[27] == 'D':
             # 1 1
@@ -234,7 +234,7 @@ def generateFormula_problem3():
             # 1 0
             string = string + "+" + "x" + str(dicFormula[a[0]]) + "*(1-x" + str(dicFormula[a[18]]) + ")*" + "48"
             # 0 0
-            string = string + "+" + "(1-x" + str(dicFormula[a[0]]) + ")*(1-x" + str(dicFormula[a[18]]) + ")*" + "35+"+print_matrix(dicFormula[a[0]],dicFormula[a[18]])+")"
+            string = string + "+" + "(1-x" + str(dicFormula[a[0]]) + ")*(1-x" + str(dicFormula[a[18]]) + ")*" + "35+"+print_matrix(dicFormula[a[0]],dicFormula[a[18]],walking_weight)+")"
             string = string + "*" + str(a[13])
         if a[4] == 'D' and a[27] == 'I':
             # 1 1
@@ -244,7 +244,7 @@ def generateFormula_problem3():
             # 0 1
             string = string + "+" + "x" + str(dicFormula[a[0]]) + "*(1-x" + str(dicFormula[a[18]]) + ")*" + "48"
             # 0 0
-            string = string + "+" + "(1-x" + str(dicFormula[a[0]]) + ")*(1-x" + str(dicFormula[a[18]]) + ")*" + "35+"+print_matrix(dicFormula[a[0]],dicFormula[a[18]])+")"
+            string = string + "+" + "(1-x" + str(dicFormula[a[0]]) + ")*(1-x" + str(dicFormula[a[18]]) + ")*" + "35+"+print_matrix(dicFormula[a[0]],dicFormula[a[18]],walking_weight)+")"
             string = string + "*" + str(a[13])
         if a[4] == 'D' and a[27] == 'D':
             # 1 1
@@ -254,7 +254,7 @@ def generateFormula_problem3():
             # 1 0
             string = string + "+" + "x" + str(dicFormula[a[0]]) + "*(1-x" + str(dicFormula[a[18]]) + ")*" + "28"
             # 1 1
-            string = string + "+" + "(1-x" + str(dicFormula[a[0]]) + ")*(1-x" + str(dicFormula[a[18]]) + ")*" + "15+"+print_matrix(dicFormula[a[0]],dicFormula[a[18]])+")"
+            string = string + "+" + "(1-x" + str(dicFormula[a[0]]) + ")*(1-x" + str(dicFormula[a[18]]) + ")*" + "15+"+print_matrix(dicFormula[a[0]],dicFormula[a[18]],walking_weight)+")"
             string = string + "*" + str(a[13])
 
     print("Model:")
@@ -267,6 +267,7 @@ def print_matrix(arriving_number,leaving_number,walking_weight):
     #11SS
     arriving_number = str(arriving_number)
     leaving_number = str(leaving_number)
+    #4*4
     string = "x"+arriving_number+"*"+"x"+leaving_number+"*("+"x"+arriving_number+"_3*x"+leaving_number+"_3*"+str(walking_weight[3][3])+\
                                                             "+x"+arriving_number+"_3*x"+leaving_number+"_4*"+str(walking_weight[3][4])+\
                                                             "+x"+arriving_number+"_3*x"+leaving_number+"_5*"+str(walking_weight[3][5])+\
@@ -284,7 +285,7 @@ def print_matrix(arriving_number,leaving_number,walking_weight):
                                                             "+x"+arriving_number+"_6*x"+leaving_number+"_5*"+str(walking_weight[6][5])+\
                                                             "+x"+arriving_number+"_6*x"+leaving_number+"_6*"+str(walking_weight[6][6])+")"
 
-    #01TS
+    #01 TS 3*4
     string = string + "+(1-x"+arriving_number+")*"+"x"+leaving_number+"*("\
                                                             +"x"+arriving_number+"_0*x"+leaving_number+"_3*"+str(walking_weight[0][3])+\
                                                             "+x"+arriving_number+"_0*x"+leaving_number+"_4*"+str(walking_weight[0][4])+\
@@ -299,7 +300,7 @@ def print_matrix(arriving_number,leaving_number,walking_weight):
                                                             "+x"+arriving_number+"_2*x"+leaving_number+"_5*"+str(walking_weight[2][5])+\
                                                             "+x"+arriving_number+"_2*x"+leaving_number+"_6*"+str(walking_weight[2][6])+")"
 
-    #10ST     "(1-x" + arriving_number + ")*" + "x" + leaving_number
+    #10ST 4*3    "(1-x" + arriving_number + ")*" + "x" + leaving_number
     string = string +"+x"+arriving_number+"*"+"(1-x"+leaving_number+")*(" \
                                                              +"x" + arriving_number + "_3*x" + leaving_number + "_0*" + str(walking_weight[3][0]) + \
                                                              "+x" + arriving_number + "_3*x" + leaving_number + "_1*" + str(walking_weight[3][1]) + \
@@ -313,7 +314,7 @@ def print_matrix(arriving_number,leaving_number,walking_weight):
                                                              "+x" + arriving_number + "_6*x" + leaving_number + "_0*" + str(walking_weight[6][0]) + \
                                                              "+x" + arriving_number + "_6*x" + leaving_number + "_1*" + str(walking_weight[6][1]) + \
                                                              "+x" + arriving_number + "_6*x" + leaving_number + "_2*" + str(walking_weight[6][2]) + ")"
-    #00TT
+    #00TT 3*3
     string = string + "(1-x+"+arriving_number+")*"+"(1-x"+leaving_number+")*(" \
                                                              +"x" + arriving_number + "_0*x" + leaving_number + "_0*" + str(walking_weight[0][0]) + \
                                                              "+x" + arriving_number + "_0*x" + leaving_number + "_1*" + str(walking_weight[0][1]) + \
