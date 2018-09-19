@@ -393,6 +393,10 @@ walking_weight =     [10,15,20,25,20,25,25,
                       25,15,20,15,10,15,15,
                       25,20,25,20,15,10,20,
                       25,20,25,20,15,20,10]
+walking_weight = np.asarray(walking_weight,dtype=np.float).reshape((7,7))
+dictionary_time={}
+dictionary_density = np.zeros(11)
+
 for ti in ti_situation:
     if ti[1] :
         for plane_si in plane_situation:
@@ -439,42 +443,82 @@ for ti in ti_situation:
                             else:
                                 go_dir = 2
         if come_gate == 'S' and go_gate == 'T' and ti[0][4] == 'I' and ti[0][27] == 'I':
-            time = time + float(ti[0][13])*30+ walking_weight[com_dir][go_dir]
+            value = (30+ walking_weight[com_dir][go_dir]+8)/(float(ti[0][24])*24*60+float(ti[0][25])-float(ti[0][1])*24*60-float(ti[0][2]))
         if come_gate == 'S' and go_gate == 'T' and ti[0][4] == 'I' and ti[0][27] == 'D':
-            time = time + float(ti[0][13])*40+ walking_weight[com_dir][go_dir]
+            value =(40 + walking_weight[com_dir][go_dir] + 8) / (float(ti[0][24]) * 24 * 60 + float(ti[0][25]) - float(ti[0][1]) * 24 * 60 - float(ti[0][2]))
         if come_gate == 'S' and go_gate == 'T' and ti[0][4] == 'D' and ti[0][27] == 'I':
-            time = time + float(ti[0][13])*40+ walking_weight[com_dir][go_dir]
+            value = (40+ walking_weight[com_dir][go_dir]+8)/(float(ti[0][24])*24*60+float(ti[0][25])-float(ti[0][1])*24*60-float(ti[0][2]))
         if come_gate == 'S' and go_gate == 'T' and ti[0][4] == 'D' and ti[0][27] == 'D':
-            time = time + float(ti[0][13])*20+ walking_weight[com_dir][go_dir]
+            value = (20 + walking_weight[com_dir][go_dir] + 8) / (
+                        float(ti[0][24]) * 24 * 60 + float(ti[0][25]) - float(ti[0][1]) * 24 * 60 - float(ti[0][2]))
+
 
         if come_gate == 'S' and go_gate == 'S' and ti[0][4] == 'I' and ti[0][27] == 'I':
-            time = time + float(ti[0][13])*20+ walking_weight[com_dir][go_dir]
+            value =(20+ walking_weight[com_dir][go_dir])/(float(ti[0][24])*24*60+float(ti[0][25])-float(ti[0][1])*24*60-float(ti[0][2]))
+
         if come_gate == 'S' and go_gate == 'S' and ti[0][4] == 'I' and ti[0][27] == 'D':
-            time = time + float(ti[0][13])*45+ walking_weight[com_dir][go_dir]
+            value =(45 + walking_weight[com_dir][go_dir] + 16) / (
+                        float(ti[0][24]) * 24 * 60 + float(ti[0][25]) - float(ti[0][1]) * 24 * 60 - float(ti[0][2]))
         if come_gate == 'S' and go_gate == 'S' and ti[0][4] == 'D' and ti[0][27] == 'I':
-            time = time + float(ti[0][13])*35+ walking_weight[com_dir][go_dir]
+            value = (35+ walking_weight[com_dir][go_dir])/(float(ti[0][24])*24*60+float(ti[0][25])-float(ti[0][1])*24*60-float(ti[0][2]))
+
         if come_gate == 'S' and go_gate == 'S' and ti[0][4] == 'D' and ti[0][27] == 'D':
-            time = time + float(ti[0][13])*15+ walking_weight[com_dir][go_dir]
+            value =(15+ walking_weight[com_dir][go_dir])/(float(ti[0][24])*24*60+float(ti[0][25])-float(ti[0][1])*24*60-float(ti[0][2]))
+
 
 
         if come_gate == 'T' and go_gate == 'T' and ti[0][4] == 'I' and ti[0][27] == 'I':
-            time = time + float(ti[0][13])*20+ walking_weight[com_dir][go_dir]
+            value =(20+ walking_weight[com_dir][go_dir])/(float(ti[0][24])*24*60+float(ti[0][25])-float(ti[0][1])*24*60-float(ti[0][2]))
+
         if come_gate == 'T' and go_gate == 'T' and ti[0][4] == 'I' and ti[0][27] == 'D':
-            time = time + float(ti[0][13])*35+ walking_weight[com_dir][go_dir]
+            value=(35 + walking_weight[com_dir][go_dir]) / (
+                        float(ti[0][24]) * 24 * 60 + float(ti[0][25]) - float(ti[0][1]) * 24 * 60 - float(ti[0][2]))
+
         if come_gate == 'T' and go_gate == 'T' and ti[0][4] == 'D' and ti[0][27] == 'I':
-            time = time + float(ti[0][13])*35+ walking_weight[com_dir][go_dir]
+            value =(35 + walking_weight[com_dir][go_dir]) / (
+                        float(ti[0][24]) * 24 * 60 + float(ti[0][25]) - float(ti[0][1]) * 24 * 60 - float(ti[0][2]))
+
         if come_gate == 'T' and go_gate == 'T' and ti[0][4] == 'D' and ti[0][27] == 'D':
-            time = time + float(ti[0][13])*15+ walking_weight[com_dir][go_dir]
+            value = (15+ walking_weight[com_dir][go_dir])/(float(ti[0][24])*24*60+float(ti[0][25])-float(ti[0][1])*24*60-float(ti[0][2]))
+
 
 
         if come_gate == 'T' and go_gate == 'S' and ti[4] == 'I' and ti[27] == 'I':
-            time = time + float(ti[0][13])*30+ walking_weight[com_dir][go_dir]
+            value =(30+ walking_weight[com_dir][go_dir]+8)/(float(ti[0][24])*24*60+float(ti[0][25])-float(ti[0][1])*24*60-float(ti[0][2]))
+
         if come_gate == 'T' and go_gate == 'S' and ti[4] == 'I' and ti[27] == 'D':
-            time = time + float(ti[0][13])*40+ walking_weight[com_dir][go_dir]
+            value =(40+ walking_weight[com_dir][go_dir]+8)/(float(ti[0][24])*24*60+float(ti[0][25])-float(ti[0][1])*24*60-float(ti[0][2]))
+
         if come_gate == 'T' and go_gate == 'S' and ti[4] == 'D' and ti[27] == 'I':
-            time = time + float(ti[0][13])*40+ walking_weight[com_dir][go_dir]
+            value =(40 + walking_weight[com_dir][go_dir] + 8) / (
+                        float(ti[0][24]) * 24 * 60 + float(ti[0][25]) - float(ti[0][1]) * 24 * 60 - float(ti[0][2]))
+
         if come_gate == 'T' and go_gate == 'S' and ti[4] == 'D' and ti[27] == 'D':
-            time = time + float(ti[0][13])*20+ walking_weight[com_dir][go_dir]
+            value =(20+ walking_weight[com_dir][go_dir]+8)/(float(ti[0][24])*24*60+float(ti[0][25])-float(ti[0][1])*24*60-float(ti[0][2]))
+        time = time + float(ti[0][13]) * value
+
+        if value<0.1:
+            dictionary_density[0] = dictionary_density[0] +float(ti[0][13])
+        elif value<0.2:
+            dictionary_density[1] = dictionary_density[1] + float(ti[0][13])
+        elif value < 0.3:
+            dictionary_density[2] = dictionary_density[2] + float(ti[0][13])
+        elif value < 0.4:
+            dictionary_density[3] = dictionary_density[3] + float(ti[0][13])
+        elif value < 0.5:
+            dictionary_density[4] = dictionary_density[4] + float(ti[0][13])
+        elif value < 0.6:
+            dictionary_density[5] = dictionary_density[5] + float(ti[0][13])
+        elif value < 0.7:
+            dictionary_density[6] = dictionary_density[6] + float(ti[0][13])
+        elif value < 0.8:
+            dictionary_density[7] = dictionary_density[7] + float(ti[0][13])
+        elif value < 0.9:
+            dictionary_density[8] = dictionary_density[8] + float(ti[0][13])
+        elif value < 1.0:
+            dictionary_density[9] = dictionary_density[9] + float(ti[0][13])
+        else:
+            dictionary_density[10] = dictionary_density[10] + float(ti[0][13])
 print(countSuc,countFail,sum,time )
 
 # print(planeFlag.sum())
