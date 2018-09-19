@@ -282,14 +282,111 @@ for i in range(answers.__len__()):
     answers[i][0] = answers[i][0][1:]
 # 用于分析时间，参数选择停靠的登机口序列和对应飞机序列
 answers=np.asarray(answers,np.int)[...,1]
-totalFlag=[],totalBestFlag=[], totalResultGate=[],total_passengers=[]
 planeFlag,planeBestFlag, resultGate, resultArriveTime, resultLeaveTime = SolvingProblem.problem2_plane_gate(DD_N_pucks_matrix_sorted,
                                                                                               D_D_N_gates, dicFormula,
                                                                                               dicFormulaReverse,
                                                                                               answers)
-totalFlag.append(planeFlag)
+
+total_passengerSituation=[]
+import xlrd
+from xlutils.copy import copy
+def generateAllInfo(plane_gate_mapper,dicFormula,dicFormulaReverse,answers):
+    plane_situation = []
+
+    workbook = xlrd.open_workbook(path)
+    new_excel = copy(workbook)
+    for i in range(plane_gate_mapper.__len__()):
+        planeFlag, planeBestFlag, resultGate, resultArriveTime, resultLeaveTime = SolvingProblem.problem2_plane_gate(
+            plane_gate_mapper[i][0],
+            plane_gate_mapper[i][1], dicFormula,
+            dicFormulaReverse,
+            answers)
+        ws = new_excel.get_sheet(0)
+        sheet = workbook.sheet_by_index(0)
+        for ii in range(plane_gate_mapper[i][0].__len__()):
+            for j in range(workbook.sheet_by_index(0).nrows):
+                if sheet.cell(j, 0).value == plane_gate_mapper[i][0][ii][0]:
+                    ws.write(j, 12, resultGate[i])
+        new_excel.save('new_file_2.csv', )
+
+        for j in range(planeBestFlag.size):
+            plane_situation.append([plane_gate_mapper[i][0][j][0],planeFlag[j],planeBestFlag[j],resultGate[j]])
+    return plane_situation
+
+plane_gate_mapper =[]
+plane_gate_mapper.append([DD_N_pucks_matrix_sorted,D_D_N_gates])
+plane_gate_mapper.append([II_W_pucks_matrix_sorted,I_I_W_gates])
+plane_gate_mapper.append([II_N_pucks_matrix_sorted,I_I_N_gates])
+plane_gate_mapper.append([DI_W_pucks_matrix_sorted,DI_I_W_gates+DI_DI_W_gates[1:3]])
+plane_gate_mapper.append([ID_W_pucks_matrix_sorted,I_DI_W_gates+DI_DI_W_gates[0:1]])
+plane_gate_mapper.append([ID_N_pucks_matrix_sorted,DI_D_N_gates+DI_DI_N_gates[1:2]])
+plane_gate_mapper.append([DI_N_pucks_matrix_sorted,D_DI_N_gates+DI_DI_N_gates[0:1]])
+plane_situation = generateAllInfo(plane_gate_mapper,dicFormula,dicFormulaReverse,answers)
+countSuc = 0
+countFail = 0
+sum = 0
+time = 0    #总花费时间
+ti_situation = []
+for ti in arriving_pucks_tickets_leaving_tickets:
+    sum = sum + float(ti[13])
+    for plane_si in plane_situation:
+        if str(plane_si[0]) == str(ti[0]) :
+            if plane_si[1] == 1:
+                countSuc = countSuc + float(ti[13])
+                ti_situation.append([ti,True])
+            else:
+                ti_situation.append([ti,False])
+                countFail = countFail+ float(ti[13])
+
+for ti in ti_situation:
+    if ti[1] :
+        for plane_si in plane_situation:
+            if str(plane_si[0]) == str(ti[0][0]):
+                for gate in gates_matrix:
+                    if gate[0] == plane_si[3]:
+                        come_gate = gate[1]
+            if str(plane_si[0] == str(ti[0][18])):
+                for gate in gates_matrix:
+                    if gate[0] == plane_si[3]:
+                        go_gate = gate[1]
+        if come_gate == 'S' and go_gate == 'T' and ti[0][4] == 'I' and ti[0][27] == 'I':
+            time = time + float(ti[0][13])*30
+        if come_gate == 'S' and go_gate == 'T' and ti[0][4] == 'I' and ti[0][27] == 'D':
+            time = time + float(ti[0][13])*40
+        if come_gate == 'S' and go_gate == 'T' and ti[0][4] == 'D' and ti[0][27] == 'I':
+            time = time + float(ti[0][13])*40
+        if come_gate == 'S' and go_gate == 'T' and ti[0][4] == 'D' and ti[0][27] == 'D':
+            time = time + float(ti[0][13])*20
+
+        if come_gate == 'S' and go_gate == 'S' and ti[0][4] == 'I' and ti[0][27] == 'I':
+            time = time + float(ti[0][13])*20
+        if come_gate == 'S' and go_gate == 'S' and ti[0][4] == 'I' and ti[0][27] == 'D':
+            time = time + float(ti[0][13])*45
+        if come_gate == 'S' and go_gate == 'S' and ti[0][4] == 'D' and ti[0][27] == 'I':
+            time = time + float(ti[0][13])*35
+        if come_gate == 'S' and go_gate == 'S' and ti[0][4] == 'D' and ti[0][27] == 'D':
+            time = time + float(ti[0][13])*15
 
 
+        if come_gate == 'T' and go_gate == 'T' and ti[0][4] == 'I' and ti[0][27] == 'I':
+            time = time + float(ti[0][13])*20
+        if come_gate == 'T' and go_gate == 'T' and ti[0][4] == 'I' and ti[0][27] == 'D':
+            time = time + float(ti[0][13])*35
+        if come_gate == 'T' and go_gate == 'T' and ti[0][4] == 'D' and ti[0][27] == 'I':
+            time = time + float(ti[0][13])*35
+        if come_gate == 'T' and go_gate == 'T' and ti[0][4] == 'D' and ti[0][27] == 'D':
+            time = time + float(ti[0][13])*15
+
+
+        if come_gate == 'T' and go_gate == 'S' and ti[4] == 'I' and ti[27] == 'I':
+            time = time + float(ti[0][13])*30
+        if come_gate == 'T' and go_gate == 'S' and ti[4] == 'I' and ti[27] == 'D':
+            time = time + float(ti[0][13])*40
+        if come_gate == 'T' and go_gate == 'S' and ti[4] == 'D' and ti[27] == 'I':
+            time = time + float(ti[0][13])*40
+        if come_gate == 'T' and go_gate == 'S' and ti[4] == 'D' and ti[27] == 'D':
+            time = time + float(ti[0][13])*20
+print(countSuc,countFail,sum,time )
 
 # print(planeFlag.sum())
 # print(planeFlag)

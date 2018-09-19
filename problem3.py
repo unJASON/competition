@@ -193,7 +193,7 @@ for arriving_puck_ticket in arriving_pucks_tickets:
 
 
 def generateFormula_problem3():
-    # 设航站楼T为0,卫星厅S为1,引入其他决策变量y1-y7
+    # 设航站楼T为0,卫星厅S为1,引入其他决策变量y0-y6
     dicFormula = {}
     dicFormulaReverse = {}
     i = 0
@@ -312,7 +312,7 @@ def print_matrix(arriving_number,leaving_number,walking_weight):
                                                             "+x"+arriving_number+"_2*x"+leaving_number+"_5*"+str(walking_weight[2][5])+\
                                                             "+x"+arriving_number+"_2*x"+leaving_number+"_6*"+str(walking_weight[2][6])+")"
 
-    #10ST 4*3    "(1-x" + arriving_number + ")*" + "x" + leaving_number
+    #10ST 4*3
     string = string +"+x"+arriving_number+"*"+"(1-x"+leaving_number+")*(" \
                                                              +"x" + arriving_number + "_3*x" + leaving_number + "_0*" + str(walking_weight[3][0]) + \
                                                              "+x" + arriving_number + "_3*x" + leaving_number + "_1*" + str(walking_weight[3][1]) + \
@@ -327,7 +327,7 @@ def print_matrix(arriving_number,leaving_number,walking_weight):
                                                              "+x" + arriving_number + "_6*x" + leaving_number + "_1*" + str(walking_weight[6][1]) + \
                                                              "+x" + arriving_number + "_6*x" + leaving_number + "_2*" + str(walking_weight[6][2]) + ")"
     #00TT 3*3
-    string = string + "+(1-x+"+arriving_number+")*"+"(1-x"+leaving_number+")*(" \
+    string = string + "+(1-x"+arriving_number+")*"+"(1-x"+leaving_number+")*(" \
                                                              +"x" + arriving_number + "_0*x" + leaving_number + "_0*" + str(walking_weight[0][0]) + \
                                                              "+x" + arriving_number + "_0*x" + leaving_number + "_1*" + str(walking_weight[0][1]) + \
                                                              "+x" + arriving_number + "_0*x" + leaving_number + "_2*" + str(walking_weight[0][2]) + \
@@ -349,12 +349,133 @@ answers = extractExcel.extractFile('answer2.xlsx')
 for i in range(answers.__len__()):
     answers[i][0] = answers[i][0][1:]
 # 用于分析时间，参数选择停靠的登机口序列和对应飞机序列
-answers=np.asarray(answers,np.int)[...,1]
-planeFlag,planeBestFlag, resultGate, resultArriveTime, resultLeaveTime = SolvingProblem.problem2_plane_gate(DD_N_pucks_matrix_sorted,
-                                                                                              D_D_N_gates, dicFormula,
-                                                                                              dicFormulaReverse,
-                                                                                              answers)
 
+def generateAllInfo(plane_gate_mapper, dicFormula, dicFormulaReverse, answers):
+    plane_situation = []
+    for i in range(plane_gate_mapper.__len__()):
+        planeFlag, planeBestFlag, resultGate, resultArriveTime, resultLeaveTime = SolvingProblem.problem2_plane_gate(
+            plane_gate_mapper[i][0],
+            plane_gate_mapper[i][1], dicFormula,
+            dicFormulaReverse,
+            answers)
+        for j in range(planeBestFlag.size):
+            plane_situation.append([plane_gate_mapper[i][0][j][0], planeFlag[j], planeBestFlag[j], resultGate[j]])
+    return plane_situation
+
+plane_gate_mapper =[]
+plane_gate_mapper.append([DD_N_pucks_matrix_sorted,D_D_N_gates])
+plane_gate_mapper.append([II_W_pucks_matrix_sorted,I_I_W_gates])
+plane_gate_mapper.append([II_N_pucks_matrix_sorted,I_I_N_gates])
+plane_gate_mapper.append([DI_W_pucks_matrix_sorted,DI_I_W_gates+DI_DI_W_gates[1:3]])
+plane_gate_mapper.append([ID_W_pucks_matrix_sorted,I_DI_W_gates+DI_DI_W_gates[0:1]])
+plane_gate_mapper.append([ID_N_pucks_matrix_sorted,DI_D_N_gates+DI_DI_N_gates[1:2]])
+plane_gate_mapper.append([DI_N_pucks_matrix_sorted,D_DI_N_gates+DI_DI_N_gates[0:1]])
+plane_situation = generateAllInfo(plane_gate_mapper,dicFormula,dicFormulaReverse,answers)
+countSuc = 0
+countFail = 0
+sum = 0
+time = 0    #总花费时间
+ti_situation = []
+for ti in arriving_pucks_tickets_leaving_pucks:
+    sum = sum + float(ti[13])
+    for plane_si in plane_situation:
+        if str(plane_si[0]) == str(ti[0]) :
+            if plane_si[1] == 1:
+                countSuc = countSuc + float(ti[13])
+                ti_situation.append([ti,True])
+            else:
+                ti_situation.append([ti,False])
+                countFail = countFail+ float(ti[13])
+walking_weight =     [10,15,20,25,20,25,25,
+                      15,10,15,20,15,20,20,
+                      20,15,10,25,20,25,25,
+                      20,20,25,10,15,20,20,
+                      25,15,20,15,10,15,15,
+                      25,20,25,20,15,10,20,
+                      25,20,25,20,15,20,10]
+for ti in ti_situation:
+    if ti[1] :
+        for plane_si in plane_situation:
+            if str(plane_si[0]) == str(ti[0][0]):
+                for gate in gates_matrix:
+                    if gate[0] == plane_si[3]:
+                        come_gate = gate[1]
+                        com_dir = -1
+                        if come_gate == 'S':
+                            if gate[2] == "North":
+                                com_dir = 3
+                            elif gate[2] == "Center":
+                                com_dir =4
+                            elif gate[2] == "South":
+                                com_dir = 5
+                            else:
+                                com_dir = 6
+                        else:
+                            if gate[2] == "North":
+                                com_dir = 0
+                            elif gate[2] == "Center":
+                                com_dir = 1
+                            else:
+                                com_dir = 2
+            if str(plane_si[0] == str(ti[0][18])):
+                for gate in gates_matrix:
+                    if gate[0] == plane_si[3]:
+                        go_gate = gate[1]
+                        go_dir = -1
+                        if go_gate == 'S':
+                            if gate[2] == "North":
+                                go_dir = 3
+                            elif gate[2] == "Center":
+                                go_dir =4
+                            elif gate[2] == "South":
+                                go_dir = 5
+                            else:
+                                go_dir = 6
+                        else:
+                            if gate[2] == "North":
+                                go_dir = 0
+                            elif gate[2] == "Center":
+                                go_dir = 1
+                            else:
+                                go_dir = 2
+        if come_gate == 'S' and go_gate == 'T' and ti[0][4] == 'I' and ti[0][27] == 'I':
+            time = time + float(ti[0][13])*30+ walking_weight[com_dir][go_dir]
+        if come_gate == 'S' and go_gate == 'T' and ti[0][4] == 'I' and ti[0][27] == 'D':
+            time = time + float(ti[0][13])*40+ walking_weight[com_dir][go_dir]
+        if come_gate == 'S' and go_gate == 'T' and ti[0][4] == 'D' and ti[0][27] == 'I':
+            time = time + float(ti[0][13])*40+ walking_weight[com_dir][go_dir]
+        if come_gate == 'S' and go_gate == 'T' and ti[0][4] == 'D' and ti[0][27] == 'D':
+            time = time + float(ti[0][13])*20+ walking_weight[com_dir][go_dir]
+
+        if come_gate == 'S' and go_gate == 'S' and ti[0][4] == 'I' and ti[0][27] == 'I':
+            time = time + float(ti[0][13])*20+ walking_weight[com_dir][go_dir]
+        if come_gate == 'S' and go_gate == 'S' and ti[0][4] == 'I' and ti[0][27] == 'D':
+            time = time + float(ti[0][13])*45+ walking_weight[com_dir][go_dir]
+        if come_gate == 'S' and go_gate == 'S' and ti[0][4] == 'D' and ti[0][27] == 'I':
+            time = time + float(ti[0][13])*35+ walking_weight[com_dir][go_dir]
+        if come_gate == 'S' and go_gate == 'S' and ti[0][4] == 'D' and ti[0][27] == 'D':
+            time = time + float(ti[0][13])*15+ walking_weight[com_dir][go_dir]
+
+
+        if come_gate == 'T' and go_gate == 'T' and ti[0][4] == 'I' and ti[0][27] == 'I':
+            time = time + float(ti[0][13])*20+ walking_weight[com_dir][go_dir]
+        if come_gate == 'T' and go_gate == 'T' and ti[0][4] == 'I' and ti[0][27] == 'D':
+            time = time + float(ti[0][13])*35+ walking_weight[com_dir][go_dir]
+        if come_gate == 'T' and go_gate == 'T' and ti[0][4] == 'D' and ti[0][27] == 'I':
+            time = time + float(ti[0][13])*35+ walking_weight[com_dir][go_dir]
+        if come_gate == 'T' and go_gate == 'T' and ti[0][4] == 'D' and ti[0][27] == 'D':
+            time = time + float(ti[0][13])*15+ walking_weight[com_dir][go_dir]
+
+
+        if come_gate == 'T' and go_gate == 'S' and ti[4] == 'I' and ti[27] == 'I':
+            time = time + float(ti[0][13])*30+ walking_weight[com_dir][go_dir]
+        if come_gate == 'T' and go_gate == 'S' and ti[4] == 'I' and ti[27] == 'D':
+            time = time + float(ti[0][13])*40+ walking_weight[com_dir][go_dir]
+        if come_gate == 'T' and go_gate == 'S' and ti[4] == 'D' and ti[27] == 'I':
+            time = time + float(ti[0][13])*40+ walking_weight[com_dir][go_dir]
+        if come_gate == 'T' and go_gate == 'S' and ti[4] == 'D' and ti[27] == 'D':
+            time = time + float(ti[0][13])*20+ walking_weight[com_dir][go_dir]
+print(countSuc,countFail,sum,time )
 
 # print(planeFlag.sum())
 # print(planeFlag)
