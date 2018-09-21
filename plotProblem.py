@@ -15,6 +15,15 @@ def plt_bar(datalist,namelist,numFlag,name):
             tick_label=namelist, fc='b')
     plt.title(name)
     plt.show()
+
+def plot_bar(x,name):
+    xx = list(range(x.shape[0]))
+    width = 0.1
+    for i in range(len(xx)):
+        xx[i] = xx[i] + width
+    # plt.xlim((0,1))
+    plt.title(name)
+    plt.show()
 def plt_line(coordList):
     for coord in coordList:
         x=np.linspace(coord[0][0],coord[1][0],50)

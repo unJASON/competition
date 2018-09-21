@@ -12,18 +12,19 @@
     <session id="-1802895166">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="1" />
+          <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.3" value="1" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gitignore" value="1" />
-          <entry key="py" value="148" />
+          <entry key="py" value="159" />
           <entry key="pyi" value="2" />
           <entry key="txt" value="1" />
         </counts>
@@ -31,59 +32,55 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Python" value="148" />
+          <entry key="Python" value="159" />
           <entry key="PythonStub" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="8" />
-          <entry key="py" value="21558" />
+          <entry key="py" value="22623" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="8" />
-          <entry key="Python" value="21558" />
+          <entry key="Python" value="22623" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GAI/GAtarget.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/SolvingProblem.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-643">
-              <caret line="187" column="20" selection-start-line="187" selection-start-column="20" selection-end-line="187" selection-end-column="20" />
-              <folding>
-                <element signature="e#28#39#0" expanded="true" />
-                <marker date="1537318682870" expanded="true" signature="2351:2392" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/extractExcel.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+            <state relative-caret-position="1583">
+              <caret line="445" column="20" selection-start-line="445" selection-start-column="20" selection-end-line="445" selection-end-column="20" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
+                <marker date="1537538166036" expanded="true" signature="168:173" ph="..." />
+                <marker date="1537538166036" expanded="true" signature="565:671" ph="..." />
+                <marker date="1537538166036" expanded="true" signature="3374:8640" ph="..." />
+                <marker date="1537538166036" expanded="true" signature="14039:14044" ph="..." />
+                <marker date="1537538166036" expanded="true" signature="18147:18152" ph="..." />
+                <marker date="1537538166036" expanded="true" signature="21250:21251" ph="..." />
+                <marker date="1537538166036" expanded="true" signature="21250:21255" ph="..." />
+                <marker date="1537538166036" expanded="true" signature="22510:22511" ph="..." />
+                <marker date="1537538166036" expanded="true" signature="22923:22924" ph="..." />
+                <marker date="1537538166036" expanded="true" signature="24082:24083" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/problem3.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/problem.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="521" selection-start-line="521" selection-end-line="521" />
+            <state relative-caret-position="381">
+              <caret line="40" column="88" selection-start-line="40" selection-start-column="88" selection-end-line="40" selection-end-column="88" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
-                <marker date="1537325425911" expanded="true" signature="19398:19400" ph="..." />
               </folding>
             </state>
           </provider>
@@ -123,7 +120,6 @@
         <option value="$PROJECT_DIR$/Gate.py" />
         <option value="$PROJECT_DIR$/Tickets.py" />
         <option value="$PROJECT_DIR$/extractPuck.py" />
-        <option value="$PROJECT_DIR$/plotProblem.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/SGA.py" />
         <option value="$PROJECT_DIR$/PreOperation.py" />
@@ -136,15 +132,16 @@
         <option value="$PROJECT_DIR$/GAI/GAtarget.py" />
         <option value="$PROJECT_DIR$/problem.py" />
         <option value="$PROJECT_DIR$/problem2.py" />
-        <option value="$PROJECT_DIR$/SolvingProblem.py" />
         <option value="$PROJECT_DIR$/problem3.py" />
+        <option value="$PROJECT_DIR$/plotProblem.py" />
+        <option value="$PROJECT_DIR$/SolvingProblem.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-196" />
     <option name="y" value="13" />
-    <option name="width" value="906" />
+    <option name="width" value="1071" />
     <option name="height" value="543" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -188,7 +185,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.problem3">
+  <component name="RunManager" selected="Python.problem">
     <configuration name="GAtarget" type="PythonConfigurationType" factoryName="Python">
       <module name="competition" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -410,13 +407,13 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11727079" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11854584" />
       <window_info id="Structure" order="1" weight="0.24973656" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32899022" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.57980454" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.4549403" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -457,7 +454,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/problem3.py</url>
-          <line>521</line>
+          <line>523</line>
           <option name="timeStamp" value="294" />
         </line-breakpoint>
       </breakpoints>
@@ -472,6 +469,12 @@
         </breakpoint>
       </default-breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="gatesList[plane_order[i]][0]" />
+        <watch expression="updatepopulation[chromosomeIndex, geneIndex]" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Tickets.py" />
@@ -545,43 +548,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://D:/Python/Python36/Lib/random.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="276" selection-start-line="276" selection-end-line="276" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/Python/Python36/Lib/site-packages/matplotlib/pyplot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-136">
-          <caret line="3350" column="4" selection-start-line="3350" selection-start-column="4" selection-end-line="3350" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plotProblem.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-12">
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/1.txt">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PreOperation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="55" column="4" selection-start-line="55" selection-start-column="4" selection-end-line="55" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-            <marker date="1537233990496" expanded="true" signature="125:126" ph="..." />
-            <marker date="1537233990496" expanded="true" signature="2021:2022" ph="..." />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$USER_HOME$/.PyCharmCE2018.2/system/python_stubs/-645839530/numpy/core/multiarray.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -590,26 +558,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GA.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="50" column="22" selection-start-line="50" selection-start-column="22" selection-end-line="50" selection-end-column="22" />
-          <folding>
-            <element signature="e#72#90#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SGA.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="197" selection-start-line="197" selection-end-line="197" />
-          <folding>
-            <element signature="e#72#90#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/GA.py" />
     <entry file="file://$PROJECT_DIR$/GAI/GeneticAlgorithm.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-4190">
@@ -624,9 +573,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="20" column="12" lean-forward="true" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -651,13 +597,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2018.2/system/python_stubs/-645839530/builtins.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="3601" column="8" selection-start-line="3601" selection-start-column="8" selection-end-line="3601" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/Python/Python36/Lib/site-packages/xlrd/sheet.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="149">
@@ -669,47 +608,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="157">
           <caret line="261" selection-start-line="261" selection-end-line="261" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SolvingProblem.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="137" column="26" selection-start-line="137" selection-start-column="26" selection-end-line="137" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-            <marker date="1537319679847" expanded="true" signature="168:173" ph="..." />
-            <marker date="1537319679847" expanded="true" signature="565:671" ph="..." />
-            <marker date="1537319679847" expanded="true" signature="3374:8640" ph="..." />
-            <marker date="1537319679847" expanded="true" signature="14039:14044" ph="..." />
-            <marker date="1537319679847" expanded="true" signature="18147:18152" ph="..." />
-            <marker date="1537319679847" expanded="true" signature="21207:21208" ph="..." />
-            <marker date="1537319679847" expanded="true" signature="21207:21212" ph="..." />
-            <marker date="1537319679847" expanded="true" signature="22270:22271" ph="..." />
-            <marker date="1537319679847" expanded="true" signature="22683:22684" ph="..." />
-            <marker date="1537319679847" expanded="true" signature="23834:23835" ph="..." />
-            <marker date="1537319679847" expanded="true" signature="25544:25545" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/extractExcel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/problem.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="49" column="32" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -727,10 +625,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/extractExcel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Python/Python36/Lib/site-packages/matplotlib/pyplot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89463">
+          <caret line="2762" column="4" selection-start-line="2762" selection-start-column="4" selection-end-line="2762" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/problem3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17160">
+          <caret line="523" selection-start-line="523" selection-end-line="523" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+            <marker date="1537326662887" expanded="true" signature="19398:19400" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/GAI/GAtarget.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-643">
-          <caret line="187" column="20" selection-start-line="187" selection-start-column="20" selection-end-line="187" selection-end-column="20" />
+        <state relative-caret-position="824">
+          <caret line="210" selection-start-line="210" selection-end-line="210" />
           <folding>
             <element signature="e#28#39#0" expanded="true" />
             <marker date="1537318682870" expanded="true" signature="2351:2392" ph="..." />
@@ -738,13 +664,78 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/problem3.py">
+    <entry file="file://$PROJECT_DIR$/plotProblem.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="521" selection-start-line="521" selection-end-line="521" />
+        <state relative-caret-position="293">
+          <caret line="22" column="29" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PreOperation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="101" column="98" selection-start-line="101" selection-start-column="61" selection-end-line="101" selection-end-column="98" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+            <marker date="1537233990496" expanded="true" signature="125:126" ph="..." />
+            <marker date="1537233990496" expanded="true" signature="2021:2022" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SGA.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="69" column="32" lean-forward="true" selection-start-line="69" selection-start-column="32" selection-end-line="69" selection-end-column="32" />
+          <folding>
+            <element signature="e#72#90#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Python/Python36/Lib/random.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="220" selection-start-line="220" selection-end-line="220" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2018.2/system/python_stubs/-645839530/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="62">
+          <caret line="517" column="4" selection-start-line="517" selection-start-column="4" selection-end-line="517" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/problem.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="40" column="88" selection-start-line="40" selection-start-column="88" selection-end-line="40" selection-end-column="88" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
-            <marker date="1537325425911" expanded="true" signature="19398:19400" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SolvingProblem.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1583">
+          <caret line="445" column="20" selection-start-line="445" selection-start-column="20" selection-end-line="445" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+            <marker date="1537538166036" expanded="true" signature="168:173" ph="..." />
+            <marker date="1537538166036" expanded="true" signature="565:671" ph="..." />
+            <marker date="1537538166036" expanded="true" signature="3374:8640" ph="..." />
+            <marker date="1537538166036" expanded="true" signature="14039:14044" ph="..." />
+            <marker date="1537538166036" expanded="true" signature="18147:18152" ph="..." />
+            <marker date="1537538166036" expanded="true" signature="21250:21251" ph="..." />
+            <marker date="1537538166036" expanded="true" signature="21250:21255" ph="..." />
+            <marker date="1537538166036" expanded="true" signature="22510:22511" ph="..." />
+            <marker date="1537538166036" expanded="true" signature="22923:22924" ph="..." />
+            <marker date="1537538166036" expanded="true" signature="24082:24083" ph="..." />
           </folding>
         </state>
       </provider>

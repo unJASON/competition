@@ -519,6 +519,8 @@ for ti in ti_situation:
             dictionary_density[9] = dictionary_density[9] + float(ti[0][13])
         else:
             dictionary_density[10] = dictionary_density[10] + float(ti[0][13])
+import plotProblem
+plotProblem.plot_bar(dictionary_density,'figure')
 print(countSuc,countFail,sum,time )
 
 # print(planeFlag.sum())

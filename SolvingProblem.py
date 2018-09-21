@@ -328,9 +328,9 @@ def recommend_First_wise_Lates_Second(planes, gatesList, dicFormula, dicFormulaR
 
 
 def plane_gate(planes, gatesList):
-    return Late_first(planes, gatesList)
+    # return Late_first(planes, gatesList)
     # return FCFS(planes,gatesList)
-    # return GA_reduce_gate(planes,gatesList)
+    return GA_reduce_gate(planes,gatesList)
 
 
     # return IGA_reduce_gate(planes,gatesList)
@@ -443,13 +443,14 @@ def GA_reduce_gate(planes,gatesList,max_iter=20000):
     optimalSolutions = []
     optimalValues = []
     previlege = np.random.permutation(planes.__len__())
-    for i in range(1000):
+    for i in range(500):
         a = np.zeros(planes.__len__())
         for ser_i in range( planes.__len__() ):
             gatesLength = gatesList.__len__()
             a[ser_i] = previlege[(ser_i+i)%planes.__len__()] % gatesLength
         generationList.append(a)
     #使用适应度函数,生成概率模型
+    # print(generationList)
     generationList = np.asarray(generationList,dtype=np.int)
     cnt = 0
     for i in range(max_iter):
@@ -462,23 +463,23 @@ def GA_reduce_gate(planes,gatesList,max_iter=20000):
         crossoverpopulation = crossover(newpopulations)
         # print(crossoverpopulation[0:10])
         # 进行变异
-        mutationpopulation = mutation(crossoverpopulation)
+        mutationpopulation = mutation(crossoverpopulation,gatesList.__len__())
         # print(mutationpopulation[0:10])
         #分析函数，保存每次的结果模型
         evaluates, cum_proba = fit_value(mutationpopulation, planes, gatesList)
-        optimalValues.append(np.min(list(evaluates)))
-        index = np.where(evaluates == min(list(evaluates)))
+        optimalValues.append(np.max(list(evaluates)))
+        index = np.where(evaluates == max(list(evaluates)))
         optimalSolutions.append(generationList[index[0][0],:])
         if cnt %100 == 0:
-            print("min(list(evaluates)):",1/np.min(list(evaluates)))
+            print("max(list(evaluates)):",np.max(list(evaluates)))
             print("generationList[index[0][0],:]:",generationList[index[0][0],:])
-            print("np.min(optimalValues):",1/np.min(optimalValues))
+            print("np.max(optimalValues):",np.max(optimalValues))
 
 
 
     #返回迭代后的最优结果
     # 搜索最优解
-    optimalValue = np.min(optimalValues)
+    optimalValue = np.max(optimalValues)
     optimalIndex = np.where(optimalValues == optimalValue)
     optimalSolution = optimalSolutions[optimalIndex[0][0]]
 
@@ -516,27 +517,34 @@ def fit_value(generationList,planes,gatesList):
     cum_probability = np.cumsum(probability)
     return fitnessvalues,cum_probability
 def GA_gates_Num(plane_order,planes,gatesList):
-    time = 0
-    count = 1
-    # for i in range(planes.__len__()):
-    #     if i == 0:
-    #         time = planes[plane_order[i]][6] * 24 * 60 + planes[plane_order[i]][7] + 45
-    #     else:
-    #         if( planes[plane_order[i]][1]* 24 * 60 + planes[plane_order[i]][2] < time ):
-    #             count = count + 1
-    #         else:
-    #             time = planes[plane_order[i]][6] * 24 * 60 + planes[plane_order[i]][7] + 45
-    time_gate = {}
+    count = 0
+    gate_plane_group = {}
+    #根据gate的number分组
+    #分组求效率
+    #1.计算门使用效率
+    #2.减小门的使用数量
+    #plane_order:对应planes中plane选择的门
+    #分组
     for i in range(planes.__len__()):
-        if not time_gate.__contains__(plane_order[i]):
-            time_gate[plane_order[i]] = planes[i][6]*24*60+planes[i][7]+ 45
+        # print("plane_order[i]:"+str(plane_order[i]))
+        if(gate_plane_group.__contains__(gatesList[ plane_order[i] ][0])):
+            gate_plane_group[ gatesList[plane_order[i]][0] ].append(planes[i])
         else:
-            if planes[i][1]*24*60+planes[i][2]<time_gate[plane_order[i]]:
-                count = count + 1
+            gate_plane_group[gatesList[plane_order[i]][0]] = []
+            gate_plane_group[gatesList[plane_order[i]][0]].append(planes[i])
+
+    for group in gate_plane_group.values():
+        group = sorted(group,key=lambda ele: ele[6] + ele[7] / 24 / 60)
+        for i in range(group.__len__()):
+            if i == 0:
+                count = count+1
             else:
-                time_gate[plane_order[i]] = planes[i][6]*24*60+planes[i][7]+ 45
-    return 1/count
-    # return max( gatesList.__len__() - count,0.0000001)
+                if group[i][1]*24*60+group[i][2] >= group[i-1][6]*24*60 + group[i-1][7] + 45:
+                    count = count +1
+                else:
+                    pass
+    # print("count:"+str(count)+"gate_plane_group:"+str(gate_plane_group.__len__()))
+    return count*1000+(gatesList.__len__()-gate_plane_group.__len__())*1
 
 def selectNewPopulation(chromosomes,cum_probability):
     m, n = chromosomes.shape
@@ -583,7 +591,7 @@ def crossover(population,Pc=0.8):
         updatepopulation[b, 0:crossoverPoint] = population[b, 0:crossoverPoint]
         updatepopulation[b, crossoverPoint:] = population[a, crossoverPoint:]
     return updatepopulation
-def mutation(population, Pm=0.01):
+def mutation(population,randNum, Pm=0.01):
     """
         :param population: 经交叉后得到的种群
         :param Pm: 变异概率默认是0.01
@@ -602,16 +610,17 @@ def mutation(population, Pm=0.01):
         chromosomeIndex = gene // n
         # 确定变异基因位于当前染色体的第几个基因位
         geneIndex = gene % n
-
-        another_ind = -1
-        while True:
-            another_ind=np.random.randint(n)
-            if another_ind != geneIndex:
-                break;
+        #改为随机重新分配
+        updatepopulation[chromosomeIndex, geneIndex] = random.randint(0,randNum-1)
         # mutation 倒置
-        mutationInts = population[chromosomeIndex,min(geneIndex,another_ind):max(geneIndex,another_ind)]
-        mutationInts = mutationInts[::-1]
-        updatepopulation[chromosomeIndex,min(geneIndex,another_ind):max(geneIndex,another_ind)] = mutationInts
+        # another_ind = -1
+        # while True:
+        #     another_ind=np.random.randint(n)
+        #     if another_ind != geneIndex:
+        #         break;
+        # mutationInts = population[chromosomeIndex,min(geneIndex,another_ind):max(geneIndex,another_ind)]
+        # mutationInts = mutationInts[::-1]
+        # updatepopulation[chromosomeIndex,min(geneIndex,another_ind):max(geneIndex,another_ind)] = mutationInts
     return updatepopulation
 def IGA_reduce_gate(plane_order,planes,gatesList):
     # 生成300随机数列
