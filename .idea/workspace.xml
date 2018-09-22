@@ -24,7 +24,7 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gitignore" value="1" />
-          <entry key="py" value="159" />
+          <entry key="py" value="171" />
           <entry key="pyi" value="2" />
           <entry key="txt" value="1" />
         </counts>
@@ -32,20 +32,20 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Python" value="159" />
+          <entry key="Python" value="171" />
           <entry key="PythonStub" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="8" />
-          <entry key="py" value="22623" />
+          <entry key="py" value="25166" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="8" />
-          <entry key="Python" value="22623" />
+          <entry key="Python" value="25166" />
         </counts>
       </usages-collector>
     </session>
@@ -55,21 +55,36 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SolvingProblem.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1583">
-              <caret line="445" column="20" selection-start-line="445" selection-start-column="20" selection-end-line="445" selection-end-column="20" />
+            <state relative-caret-position="139">
+              <caret line="221" column="18" selection-start-line="221" selection-start-column="18" selection-end-line="221" selection-end-column="18" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
-                <marker date="1537538166036" expanded="true" signature="168:173" ph="..." />
-                <marker date="1537538166036" expanded="true" signature="565:671" ph="..." />
-                <marker date="1537538166036" expanded="true" signature="3374:8640" ph="..." />
-                <marker date="1537538166036" expanded="true" signature="14039:14044" ph="..." />
-                <marker date="1537538166036" expanded="true" signature="18147:18152" ph="..." />
-                <marker date="1537538166036" expanded="true" signature="21250:21251" ph="..." />
-                <marker date="1537538166036" expanded="true" signature="21250:21255" ph="..." />
-                <marker date="1537538166036" expanded="true" signature="22510:22511" ph="..." />
-                <marker date="1537538166036" expanded="true" signature="22923:22924" ph="..." />
-                <marker date="1537538166036" expanded="true" signature="24082:24083" ph="..." />
+                <marker date="1537622830682" expanded="true" signature="179:184" ph="..." />
+                <marker date="1537622830682" expanded="true" signature="578:684" ph="..." />
+                <marker date="1537622830682" expanded="true" signature="3387:8653" ph="..." />
+                <marker date="1537622830682" expanded="true" signature="14052:14057" ph="..." />
+                <marker date="1537622830682" expanded="true" signature="18076:18081" ph="..." />
+                <marker date="1537622830682" expanded="true" signature="20417:20418" ph="..." />
+                <marker date="1537622830682" expanded="true" signature="20417:20422" ph="..." />
+                <marker date="1537622830682" expanded="true" signature="21676:21677" ph="..." />
+                <marker date="1537622830682" expanded="true" signature="22089:22090" ph="..." />
+                <marker date="1537622830682" expanded="true" signature="23248:23249" ph="..." />
+                <marker date="1537622830682" expanded="true" signature="28571:28583" ph="..." />
+                <marker date="1537622830682" expanded="true" signature="29107:29108" ph="..." />
+                <marker date="1537622830682" expanded="true" signature="29179:29528" ph="..." />
+                <marker date="1537622830682" expanded="true" signature="29577:31129" ph="..." />
+                <marker date="1537622830682" expanded="true" signature="31197:32105" ph="..." />
+                <marker date="1537622830682" expanded="true" signature="37788:37789" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/problem2.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="363">
+              <caret line="298" column="102" lean-forward="true" selection-start-line="298" selection-start-column="102" selection-end-line="298" selection-end-column="102" />
             </state>
           </provider>
         </entry>
@@ -77,10 +92,23 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/problem.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="381">
-              <caret line="40" column="88" selection-start-line="40" selection-start-column="88" selection-end-line="40" selection-end-column="88" />
+            <state relative-caret-position="462">
+              <caret line="35" column="4" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="4" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/problem3.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="354" column="72" lean-forward="true" selection-start-line="354" selection-start-column="72" selection-end-line="354" selection-end-column="72" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+                <marker date="1537614287429" expanded="true" signature="19432:19434" ph="..." />
               </folding>
             </state>
           </provider>
@@ -109,6 +137,17 @@
       <find>tick</find>
       <find>tickets</find>
       <find>arriving_pucks_tickets_leaving_tickets</find>
+      <find>proble</find>
+      <find>dic</find>
+      <find>dicformula</find>
+      <find>nums</find>
+      <find>GA_GATE</find>
+      <find>selectNewPopulation</find>
+      <find>crossover_</find>
+      <find>crossover</find>
+      <find>crossover(</find>
+      <find>mutation(</find>
+      <find>user</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -130,15 +169,15 @@
         <option value="$PROJECT_DIR$/GAI/ObjFunction.py" />
         <option value="$PROJECT_DIR$/GAI/GeneticAlgorithm.py" />
         <option value="$PROJECT_DIR$/GAI/GAtarget.py" />
+        <option value="$PROJECT_DIR$/plotProblem.py" />
+        <option value="$PROJECT_DIR$/problem3.py" />
         <option value="$PROJECT_DIR$/problem.py" />
         <option value="$PROJECT_DIR$/problem2.py" />
-        <option value="$PROJECT_DIR$/problem3.py" />
-        <option value="$PROJECT_DIR$/plotProblem.py" />
         <option value="$PROJECT_DIR$/SolvingProblem.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-196" />
     <option name="y" value="13" />
     <option name="width" value="1071" />
@@ -185,7 +224,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.problem">
+  <component name="RunManager" selected="Python.problem2">
     <configuration name="GAtarget" type="PythonConfigurationType" factoryName="Python">
       <module name="competition" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -413,7 +452,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32899022" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.4549403" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.71226925" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -454,8 +493,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/problem3.py</url>
-          <line>523</line>
+          <line>518</line>
           <option name="timeStamp" value="294" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/SolvingProblem.py</url>
+          <line>656</line>
+          <option name="timeStamp" value="410" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/SolvingProblem.py</url>
+          <line>695</line>
+          <option name="timeStamp" value="412" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
@@ -471,10 +520,26 @@
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
-        <watch expression="gatesList[plane_order[i]][0]" />
-        <watch expression="updatepopulation[chromosomeIndex, geneIndex]" />
+        <watch expression="gate_plane_group.__len__()" />
+        <watch expression="global_value" />
+        <watch expression="ti[0]" />
+        <watch expression="generationList[index[0][0], :]" />
+        <watch expression="plane_gate_mapper[i][0]" />
+        <watch expression="plane_gate_mapper[i][1]" />
+        <watch expression="plane_gate_mapper[i][0]" />
+        <watch expression="sheet.cell(j, 0).value" />
+        <watch expression="resultGate[i]" />
       </configuration>
     </watches-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="watch">
+      <expression>
+        <expression-string>updatepopulation[a, 0:crossoverPoint]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Tickets.py" />
@@ -534,29 +599,8 @@
     <entry file="file://D:/Python/Python36/Lib/site-packages/numpy/random/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2018.2/system/python_stubs/-645839530/numpy/random/mtrand.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="2020" column="4" selection-start-line="2020" selection-start-column="4" selection-end-line="2020" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/Python/Python36/Lib/site-packages/numpy/core/numeric.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-16">
-          <caret line="423" column="4" selection-start-line="423" selection-start-column="4" selection-end-line="423" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/1.txt">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2018.2/system/python_stubs/-645839530/numpy/core/multiarray.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="5745" column="4" selection-start-line="5745" selection-start-column="4" selection-end-line="5745" selection-end-column="4" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/GA.py" />
     <entry file="file://$PROJECT_DIR$/GAI/GeneticAlgorithm.py">
@@ -611,13 +655,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/problem2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5115">
-          <caret line="16" selection-start-line="16" selection-end-line="16" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Logger.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
@@ -639,17 +676,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="89463">
           <caret line="2762" column="4" selection-start-line="2762" selection-start-column="4" selection-end-line="2762" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/problem3.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17160">
-          <caret line="523" selection-start-line="523" selection-end-line="523" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-            <marker date="1537326662887" expanded="true" signature="19398:19400" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -686,23 +712,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SGA.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="69" column="32" lean-forward="true" selection-start-line="69" selection-start-column="32" selection-end-line="69" selection-end-column="32" />
-          <folding>
-            <element signature="e#72#90#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/Python/Python36/Lib/random.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="220" selection-start-line="220" selection-end-line="220" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.PyCharmCE2018.2/system/python_stubs/-645839530/builtins.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="62">
@@ -710,32 +719,94 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/SGA.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="592">
+          <caret line="186" column="16" lean-forward="true" selection-start-line="186" selection-start-column="16" selection-end-line="186" selection-end-column="16" />
+          <folding>
+            <element signature="e#72#90#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2018.2/system/python_stubs/-645839530/numpy/core/multiarray.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="4334" column="8" selection-start-line="4334" selection-start-column="8" selection-end-line="4334" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Python/Python36/Lib/random.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="196" selection-start-line="196" selection-end-line="196" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Python/Python36/Lib/site-packages/numpy/core/numeric.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="491" selection-start-line="491" selection-end-line="491" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2018.2/system/python_stubs/-645839530/numpy/random/mtrand.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="1780" column="4" selection-start-line="1780" selection-start-column="4" selection-end-line="1780" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/problem.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="40" column="88" selection-start-line="40" selection-start-column="88" selection-end-line="40" selection-end-column="88" />
+        <state relative-caret-position="462">
+          <caret line="35" column="4" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="4" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/problem3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="354" column="72" lean-forward="true" selection-start-line="354" selection-start-column="72" selection-end-line="354" selection-end-column="72" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+            <marker date="1537614287429" expanded="true" signature="19432:19434" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/problem2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="298" column="102" lean-forward="true" selection-start-line="298" selection-start-column="102" selection-end-line="298" selection-end-column="102" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/SolvingProblem.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1583">
-          <caret line="445" column="20" selection-start-line="445" selection-start-column="20" selection-end-line="445" selection-end-column="20" />
+        <state relative-caret-position="139">
+          <caret line="221" column="18" selection-start-line="221" selection-start-column="18" selection-end-line="221" selection-end-column="18" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
-            <marker date="1537538166036" expanded="true" signature="168:173" ph="..." />
-            <marker date="1537538166036" expanded="true" signature="565:671" ph="..." />
-            <marker date="1537538166036" expanded="true" signature="3374:8640" ph="..." />
-            <marker date="1537538166036" expanded="true" signature="14039:14044" ph="..." />
-            <marker date="1537538166036" expanded="true" signature="18147:18152" ph="..." />
-            <marker date="1537538166036" expanded="true" signature="21250:21251" ph="..." />
-            <marker date="1537538166036" expanded="true" signature="21250:21255" ph="..." />
-            <marker date="1537538166036" expanded="true" signature="22510:22511" ph="..." />
-            <marker date="1537538166036" expanded="true" signature="22923:22924" ph="..." />
-            <marker date="1537538166036" expanded="true" signature="24082:24083" ph="..." />
+            <marker date="1537622830682" expanded="true" signature="179:184" ph="..." />
+            <marker date="1537622830682" expanded="true" signature="578:684" ph="..." />
+            <marker date="1537622830682" expanded="true" signature="3387:8653" ph="..." />
+            <marker date="1537622830682" expanded="true" signature="14052:14057" ph="..." />
+            <marker date="1537622830682" expanded="true" signature="18076:18081" ph="..." />
+            <marker date="1537622830682" expanded="true" signature="20417:20418" ph="..." />
+            <marker date="1537622830682" expanded="true" signature="20417:20422" ph="..." />
+            <marker date="1537622830682" expanded="true" signature="21676:21677" ph="..." />
+            <marker date="1537622830682" expanded="true" signature="22089:22090" ph="..." />
+            <marker date="1537622830682" expanded="true" signature="23248:23249" ph="..." />
+            <marker date="1537622830682" expanded="true" signature="28571:28583" ph="..." />
+            <marker date="1537622830682" expanded="true" signature="29107:29108" ph="..." />
+            <marker date="1537622830682" expanded="true" signature="29179:29528" ph="..." />
+            <marker date="1537622830682" expanded="true" signature="29577:31129" ph="..." />
+            <marker date="1537622830682" expanded="true" signature="31197:32105" ph="..." />
+            <marker date="1537622830682" expanded="true" signature="37788:37789" ph="..." />
           </folding>
         </state>
       </provider>

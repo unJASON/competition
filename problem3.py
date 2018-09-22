@@ -256,23 +256,23 @@ def generateFormula_problem3():
             string = string + "+" + "(1-x" + str(dicFormula[a[0]]) + ")*(1-x" + str(dicFormula[a[18]]) + ")*" + "15+"+print_matrix(dicFormula[a[0]],dicFormula[a[18]],walking_weight)+")"
         string = string + "*" + str(a[13])+"/"+str(float(a[24])*24*60+float(a[25])-float(a[1])*24*60-float(a[2]))
 
-    import sys
-    from  Logger import Logger
-    sys.stdout = Logger("1.txt")  # 保存
-    print("Model:")
-    print("min=" + string + ";")
-    for value in dicFormula.values():
-        print("(1-x"+str(value)+")*("+"x"+str(value)+"_0+"+"x"+str(value)+"_1+"+"x"+str(value)+"_2)+x"+str(value)+"*("+"x"+str(value)+"_3+"+"x"+str(value)+"_4+"+"x"+str(value)+"_5+"+"x"+str(value)+"_6) = 1;" )
-    for value in dicFormula.values():
-        print("@bin(x" + str(value) + ");")
-        print("@bin(x" + str(value) + "_0" + ");")
-        print("@bin(x" + str(value) + "_1" + ");")
-        print("@bin(x" + str(value) + "_2" + ");")
-        print("@bin(x" + str(value) + "_3" + ");")
-        print("@bin(x" + str(value) + "_4" + ");")
-        print("@bin(x" + str(value) + "_5" + ");")
-        print("@bin(x" + str(value) + "_6" + ");")
-    print("end")
+    # import sys
+    # from  Logger import Logger
+    # sys.stdout = Logger("1.txt")  # 保存
+    # print("Model:")
+    # print("min=" + string + ";")
+    # for value in dicFormula.values():
+    #     print("(1-x"+str(value)+")*("+"x"+str(value)+"_0+"+"x"+str(value)+"_1+"+"x"+str(value)+"_2)+x"+str(value)+"*("+"x"+str(value)+"_3+"+"x"+str(value)+"_4+"+"x"+str(value)+"_5+"+"x"+str(value)+"_6) = 1;" )
+    # for value in dicFormula.values():
+    #     print("@bin(x" + str(value) + ");")
+    #     print("@bin(x" + str(value) + "_0" + ");")
+    #     print("@bin(x" + str(value) + "_1" + ");")
+    #     print("@bin(x" + str(value) + "_2" + ");")
+    #     print("@bin(x" + str(value) + "_3" + ");")
+    #     print("@bin(x" + str(value) + "_4" + ");")
+    #     print("@bin(x" + str(value) + "_5" + ");")
+    #     print("@bin(x" + str(value) + "_6" + ");")
+    # print("end")
 
     return dicFormula, dicFormulaReverse
 def print_matrix(arriving_number,leaving_number,walking_weight):
@@ -345,32 +345,27 @@ dicFormula, dicFormulaReverse = generateFormula_problem3()
 
 # 抽出最优解
 # 设航站楼为0,卫星厅为1
-answers = extractExcel.extractFile('answer2.xlsx')
-for i in range(answers.__len__()):
-    answers[i][0] = answers[i][0][1:]
+# answers = extractExcel.extractFile('answer2.xlsx')
+# for i in range(answers.__len__()):
+#     answers[i][0] = answers[i][0][1:]
 # 用于分析时间，参数选择停靠的登机口序列和对应飞机序列
 
-def generateAllInfo(plane_gate_mapper, dicFormula, dicFormulaReverse, answers):
+def generateAllInfo(plane_gate_mapper, dicFormula, dicFormulaReverse,arriving_pucks_tickets_leaving_pucks):
     plane_situation = []
-    for i in range(plane_gate_mapper.__len__()):
-        planeFlag, planeBestFlag, resultGate, resultArriveTime, resultLeaveTime = SolvingProblem.problem2_plane_gate(
-            plane_gate_mapper[i][0],
-            plane_gate_mapper[i][1], dicFormula,
-            dicFormulaReverse,
-            answers)
-        for j in range(planeBestFlag.size):
-            plane_situation.append([plane_gate_mapper[i][0][j][0], planeFlag[j], planeBestFlag[j], resultGate[j]])
+    planeFlag, planeBestFlag, resultGate = SolvingProblem.problem3_plane_gate(plane_gate_mapper, dicFormula,dicFormulaReverse,arriving_pucks_tickets_leaving_pucks)
+    for j in range(planeBestFlag.size):
+        plane_situation.append([plane_gate_mapper[i][0][j][0], planeFlag[j], planeBestFlag[j], resultGate[j]])
     return plane_situation
 
 plane_gate_mapper =[]
-plane_gate_mapper.append([DD_N_pucks_matrix_sorted,D_D_N_gates])
-plane_gate_mapper.append([II_W_pucks_matrix_sorted,I_I_W_gates])
-plane_gate_mapper.append([II_N_pucks_matrix_sorted,I_I_N_gates])
-plane_gate_mapper.append([DI_W_pucks_matrix_sorted,DI_I_W_gates+DI_DI_W_gates[1:3]])
-plane_gate_mapper.append([ID_W_pucks_matrix_sorted,I_DI_W_gates+DI_DI_W_gates[0:1]])
-plane_gate_mapper.append([ID_N_pucks_matrix_sorted,DI_D_N_gates+DI_DI_N_gates[1:2]])
-plane_gate_mapper.append([DI_N_pucks_matrix_sorted,D_DI_N_gates+DI_DI_N_gates[0:1]])
-plane_situation = generateAllInfo(plane_gate_mapper,dicFormula,dicFormulaReverse,answers)
+plane_gate_mapper.append([DD_N_pucks_matrix_sorted,D_D_N_gates])    #35
+plane_gate_mapper.append([II_W_pucks_matrix_sorted,I_I_W_gates])    #17
+plane_gate_mapper.append([II_N_pucks_matrix_sorted,I_I_N_gates])    #4
+plane_gate_mapper.append([DI_W_pucks_matrix_sorted,DI_I_W_gates+DI_DI_W_gates[1:3]])       #3
+plane_gate_mapper.append([ID_W_pucks_matrix_sorted,I_DI_W_gates+DI_DI_W_gates[0:1]])       #2
+plane_gate_mapper.append([ID_N_pucks_matrix_sorted,DI_D_N_gates+DI_DI_N_gates[1:2]])       #2+1
+plane_gate_mapper.append([DI_N_pucks_matrix_sorted,D_DI_N_gates+DI_DI_N_gates[0:1]])       #2+1
+plane_situation = generateAllInfo(plane_gate_mapper,dicFormula,dicFormulaReverse,arriving_pucks_tickets_leaving_pucks)
 countSuc = 0
 countFail = 0
 sum = 0
@@ -483,17 +478,17 @@ for ti in ti_situation:
 
 
 
-        if come_gate == 'T' and go_gate == 'S' and ti[4] == 'I' and ti[27] == 'I':
+        if come_gate == 'T' and go_gate == 'S' and ti[0][4] == 'I' and ti[0][27] == 'I':
             value =(30+ walking_weight[com_dir][go_dir]+8)/(float(ti[0][24])*24*60+float(ti[0][25])-float(ti[0][1])*24*60-float(ti[0][2]))
 
-        if come_gate == 'T' and go_gate == 'S' and ti[4] == 'I' and ti[27] == 'D':
+        if come_gate == 'T' and go_gate == 'S' and ti[0][4] == 'I' and ti[0][27] == 'D':
             value =(40+ walking_weight[com_dir][go_dir]+8)/(float(ti[0][24])*24*60+float(ti[0][25])-float(ti[0][1])*24*60-float(ti[0][2]))
 
-        if come_gate == 'T' and go_gate == 'S' and ti[4] == 'D' and ti[27] == 'I':
+        if come_gate == 'T' and go_gate == 'S' and ti[0][4] == 'D' and ti[0][27] == 'I':
             value =(40 + walking_weight[com_dir][go_dir] + 8) / (
                         float(ti[0][24]) * 24 * 60 + float(ti[0][25]) - float(ti[0][1]) * 24 * 60 - float(ti[0][2]))
 
-        if come_gate == 'T' and go_gate == 'S' and ti[4] == 'D' and ti[27] == 'D':
+        if come_gate == 'T' and go_gate == 'S' and ti[0][4] == 'D' and ti[0][27] == 'D':
             value =(20+ walking_weight[com_dir][go_dir]+8)/(float(ti[0][24])*24*60+float(ti[0][25])-float(ti[0][1])*24*60-float(ti[0][2]))
         time = time + float(ti[0][13]) * value
 

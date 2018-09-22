@@ -46,7 +46,7 @@ def generateAllInfo(plane_gate_mapper):
         for ii in range(plane_gate_mapper[i][0].__len__()):
             for j in range(workbook.sheet_by_index(0).nrows):
                 if sheet.cell(j, 0).value == plane_gate_mapper[i][0][ii][0]:
-                    ws.write(j, 12, resultGate[i])
+                    ws.write(j, 12, resultGate[ii])
     new_excel.save('new_file.csv', )
     return plane_situation
 
